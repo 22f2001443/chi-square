@@ -12,19 +12,19 @@ const LINKS = [
   {
     title: "Club",
     items: [
-      { label: "About us", href: "/about" },
-      { label: "People", href: "/people" },
-      { label: "Resources", href: "/resources" },
-      { label: "News", href: "/news" },
+      { label: "About us", href: "#" },
+      { label: "People", href: "#" },
+      { label: "Resources", href: "#" },
+      { label: "News", href: "#" },
     ],
   },
   {
     title: "Resource",
     items: [
-      { label: "Blog", href: "/blog" },
-      { label: "Newsletter", href: "/newsletter" },
+      { label: "Blog", href: "#" },
+      { label: "Newsletter", href: "#" },
       { label: "Events", href: "/events" },
-      { label: "Help center", href: "/help" },
+      { label: "Help center", href: "#" },
     ],
   },
 ];
