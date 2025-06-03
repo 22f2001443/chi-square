@@ -4,13 +4,15 @@ import { HashRouter  as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Events from "./pages/Events";
 import People from "./pages/People";
+import { Link } from "react-router-dom";
+
 
 function App() {
   return (
     <Routes>
-    <Route path="/chi-square" element={<Home />} />
-    <Route path="/chi-square/events" element={<Events />} />
-    <Route path="/chi-square/people" element={<People />} />
+    <Route path="/" element={<Home />} />
+    <Route exact path="/events" element={<Events />} />
+    <Route path="/people" element={<People />} />
     </Routes>
     
   );

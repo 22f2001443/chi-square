@@ -79,7 +79,7 @@ export default function Events() {
               >
                 <div className="group relative">
                   <img
-                    src={`/Posters/${event.Event_Code}.png` || "https://via.placeholder.com/400x250?text=No+Image"}
+                    src={`${import.meta.env.BASE_URL}/Posters/${event.Event_Code}.png` || "https://via.placeholder.com/400x250?text=No+Image"}
                     alt={event.Event_Name}
                     className="w-full h-64 object-cover"
                   />

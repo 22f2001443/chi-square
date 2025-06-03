@@ -8,35 +8,35 @@ const teamMembers = [
   {
     name: "Samyabrata Roy",
     role: "Founder",
-    img: "/team/sam.jpg",
+    img: `${import.meta.env.BASE_URL}/team/sam.jpg`,
     linkedin: "https://www.linkedin.com/in/samyabrata23/",
     email: "22f2001443@ds.study.iitm.ac.in",
   },
   {
     name: "Sukanya S",
     role: "Core member [Content Team]",
-    img: "/team/s.jpeg",
+    img: `${import.meta.env.BASE_URL}/team/s.jpeg`,
     linkedin: "https://www.linkedin.com/in/sukanya-s-04610a206/",
     email: "23ds1000045@ds.study.iitm.ac.in",
   },
   {
     name: "Shrabana Paul",
     role: "Core member [Content Team]",
-    img: "/team/paul.jpeg",
+    img: `${import.meta.env.BASE_URL}/team/paul.jpeg`,
     linkedin: "https://www.linkedin.com/in/shrabana-paul-461935275/",
     email: "23f3003958@ds.study.iitm.ac.in",
   },
   {
     name: "Sinu Maria Jeeson",
     role: "Core member    [Content Team]",
-    img: "/team/dummy.jpeg",
+    img: `${import.meta.env.BASE_URL}/team/dummy.jpeg`,
     linkedin: "https://www.linkedin.com/in/sinu-maria-jeeson-8913951b9/",
     email: "21f1001608@ds.study.iitm.ac.in",
   },
   {
     name: "Writwik Das",
     role: "PR and Media Lead",
-    img: "/team/das.jpeg",
+    img: `${import.meta.env.BASE_URL}/team/das.jpeg`,
     linkedin: "https://www.linkedin.com/in/writwik-das/",
     email: "24f2009043@ds.study.iitm.ac.in",
   },
@@ -52,7 +52,7 @@ const colaborators = [
   {
     name: "Madhur Thareja",
     role: "Deputy Secretary, RaSoR",
-    img: "/team/MT.jpeg",
+    img: `${import.meta.env.BASE_URL}/team/MT.jpeg`,
     email: "volunteer2@iitm.ac.in",
   },
 ];
@@ -61,7 +61,7 @@ const volunteers = [
   {
     name: "John Doe",
    role: "Volunteer",
-   img: "/team/john.jpg",
+   img: `${import.meta.env.BASE_URL}/team/john.jpg`,
    email: "volunteer2@iitm.ac.in",
   },
 ];

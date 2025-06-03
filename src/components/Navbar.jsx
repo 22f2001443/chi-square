@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   MobileNav,
@@ -40,9 +41,7 @@ export function NavbarDefault() {
           />
         </svg>
  
-        <a href="/events" className="flex items-center">
-          Events
-        </a>
+        <Link to="/events" className="flex items-center">Events</Link>
       </Typography>
       <Typography
         as="li"
@@ -64,9 +63,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="/people" className="flex items-center">
-          People
-        </a>
+        <Link to="/people" className="flex items-center">People</Link>
       </Typography>
       <Typography
         as="li"
@@ -86,9 +83,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="#" className="flex items-center">
-          Resources
-        </a>
+        <Link to="/events" className="flex items-center">Resources</Link>
       </Typography>
       <Typography
         as="li"
@@ -110,9 +105,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="#" className="flex items-center">
-        Blogs
-        </a>
+        <Link to="/events" className="flex items-center">Blogs</Link>
       </Typography>
       <Typography
         as="li"
@@ -132,9 +125,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="#" className="flex items-center">
-          Abouts
-        </a>
+        <Link to="/events" className="flex items-center">About Us</Link>
       </Typography>
     </ul>
   );
@@ -144,10 +135,10 @@ export function NavbarDefault() {
       <div className="ag-theme-alpine w-full">
         <div className="ag-grid-row" style={{ display: "grid", gridTemplateColumns: "1fr 3fr", alignItems: "center" }}>
           <div className="flex items-center space-x-2">
-            <img src="/lgo.png" alt="logo" className="h-10 w-10" />
+            <img src= {`${import.meta.env.BASE_URL}/lgo.png`} alt="logo" className="h-10 w-10" />
             <Typography
-              as="a"
-              href="/"
+              as={Link}
+              to="/"
               className="cursor-pointer font-bold text-lg text-blue-gray-900"
               style={{ fontFamily: "'Dancing Script', cursive" }}
             >
