@@ -4,6 +4,8 @@ import { HashRouter  as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Events from "./pages/Events";
 import People from "./pages/People";
+import SocietyMessage from "./pages/Abouts";
+import CourseMaterial from "./pages/Course";
 import { Link } from "react-router-dom";
 
 
@@ -13,6 +15,8 @@ function App() {
     <Route path="/" element={<Home />} />
     <Route exact path="/events" element={<Events />} />
     <Route path="/people" element={<People />} />
+    <Route path="/abouts" element={<SocietyMessage/>} />
+    <Route path="/resources/course-materials" element={<CourseMaterial/>} />
     </Routes>
     
   );

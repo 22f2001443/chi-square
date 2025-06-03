@@ -21,57 +21,194 @@ export default function Events() {
       });
   }, []);
 
-  // Example hardcoded upcoming events
-  const upcomingEvents = [
-    {
-      title: "Upcoming Event Title",
-      description: "Short description of the upcoming event goes here.",
-      date: "2025-06-10",
-      link: "#",
-    },
-    // Add more upcoming events here if you want
-  ];
 
   return (
     <>
       <NavbarDefault />
       <div className="max-w-7xl mx-auto px-4 py-16">
-        {/* Upcoming Events */}
-        <h1 className="text-4xl font-bold underline underline-offset-4 decoration-black text-center mb-8 text-blue-gray-900">
-          Upcoming Events
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {upcomingEvents.map((event) => (
-            <div
-              key={event.title}
-              className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-between"
-            >
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">{event.title}</h2>
-                <p className="text-gray-700 mb-4">{event.description}</p>
-                <p className="text-sm text-gray-500 mb-4">{event.date}</p>
-              </div>
-              <a
-                href={event.link}
-                className="text-blue-500 hover:underline self-start"
-              >
-                Learn More
-              </a>
-            </div>
-          ))}
-        </div>
 
-        {/* Past Events */}
-        <h1 className="text-4xl font-bold underline underline-offset-4 decoration-black text-center mb-8 text-blue-gray-900">
-          Past Events
-        </h1>
+        <div className="mx-auto mb-16">
+          <h2 className="text-3xl font-bold text-blue-gray-900 mb-8 border-l-4 border-teal-950 pl-4">
+            Workshops/BootCamps
+          </h2>
+          {pastEvents
+            .filter((event) => event.Type === "Bootcamp / Workshops")
+            .map((event) => (
+              <div
+                key={event.Event_Name}
+                className="flex flex-col lg:flex-row items-center bg-white shadow-md rounded-lg overflow-hidden mb-12 mx-auto min-h-[300px]"
+                style={{ width: "85%" }}
+              >
+                <div className="w-full lg:w-1/2 h-full">
+                  <img
+                    src={`${import.meta.env.BASE_URL}/Posters/${event.Event_Code}.png`}
+                    alt={event.Event_Name}
+                    className="w-full h-80 object-scale-down"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://via.placeholder.com/600x400?text=No+Image";
+                    }}
+                  />
+                </div>
+                <div className="w-full lg:w-1/2 p-6 flex flex-col justify-center h-full">
+                  <h3 className="text-2xl font-bold mb-2">{event.Event_Name}</h3>
+                  <div>
+                        <p className="text-sm text-gray-500">{event.Event_Date}</p>
+                      <p className="text-sm text-gray-500">Term: {event.Term}</p>
+                      <p className="text-sm text-gray-500">Series: {event.Series}</p>
+                      <p className="text-sm text-gray-500">Episode: {event.Ep}</p>
+                      <p className="text-sm text-gray-500">Topic: {event.Topic}</p>
+                      {event.Guest_Speaker && event.Guest_Speaker.trim() !== "" && (
+    <p className="text-sm text-gray-500">
+      Guest Speaker: <br /> &nbsp; &nbsp;{event.Guest_Speaker}
+    </p>
+  )}
+                      <p className="text-sm text-gray-500">Host: <br/> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;{event.Host_1_name}<br/> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; {event.Host_2_name}<br/> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;{event.Host_3_name}<br/> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{event.Host_4_name}</p>
+                     <br/> <div><a
+                        href={event.youtubeLink || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}/yt.png`}
+                          alt="Visit Youtube"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </a>
+                      &nbsp; &nbsp;
+                      <a
+                        href={event.LiLink || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}/li.png`}
+                          alt="Visit LinkedIn"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </a>
+                      &nbsp; &nbsp;
+                      <a
+                        href={event.materialLink || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}/folder.svg`}
+                          alt="Access Slides"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </a>
+                      </div>
+                    </div>
+                    {/* Logos */}
+  <div className="flex justify-center mt-4 gap-2">
+    <img
+      src={`${import.meta.env.BASE_URL}/logo_t.png`}
+      alt="Logo 1"
+      className="h-8 w-8 object-contain"
+    />
+
+    <img
+      src={`${import.meta.env.BASE_URL}/nil.png`}
+      alt="Logo 2"
+      className="h-8 w-8 object-contain"
+    />
+  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+        <hr className="my-12 border-gray-300" />
+        
+        <div className="mx-auto mb-16">
+          <h2 className="text-3xl font-bold text-blue-gray-900 mb-8 border-l-4 border-teal-950 pl-4">
+            Academic Talks
+          </h2>
+          {pastEvents
+            .filter((event) => event.Type === "Academic Talks")
+            .map((event) => (
+              <div
+                key={event.Event_Name}
+                className="flex flex-col lg:flex-row items-center bg-white shadow-md rounded-lg overflow-hidden mb-12 mx-auto min-h-[300px]"
+                style={{ width: "85%" }}
+              >
+                <div className="w-full lg:w-1/2 h-full">
+                  <img
+                    src={`${import.meta.env.BASE_URL}/Posters/${event.Event_Code}.png`}
+                    alt={event.Event_Name}
+                    className="w-full h-80 object-scale-down"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://via.placeholder.com/600x400?text=No+Image";
+                    }}
+                  />
+                </div>
+                <div className="w-full lg:w-1/2 p-6 flex flex-col justify-center h-full">
+                  <h3 className="text-2xl font-bold mb-2">{event.Event_Name}</h3>
+                  <div>
+                        <p className="text-sm text-gray-500">{event.Event_Date}</p>
+                      <p className="text-sm text-gray-500">Term: {event.Term}</p>
+                      <p className="text-sm text-gray-500">Series: {event.Series}</p>
+                      <p className="text-sm text-gray-500">Episode: {event.Ep}</p>
+                      <p className="text-sm text-gray-500">Topic: {event.Topic}</p>
+                      {event.Guest_Speaker && event.Guest_Speaker.trim() !== "" && (
+    <p className="text-sm text-gray-500">
+      Guest Speaker: <br /> &nbsp; &nbsp;{event.Guest_Speaker}
+    </p>
+  )}
+                      <p className="text-sm text-gray-500">Host: <br/> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;{event.Host_1_name}<br/> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; {event.Host_2_name}<br/> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; {event.Host_3_name}<br/> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; {event.Host_4_name}</p>
+                      <a
+                        href={event.youtubeLink || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}/yt.png`}
+                          alt="Visit Youtube"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </a>
+                      &nbsp; &nbsp;
+                      <a
+                        href={event.materialLink || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}/folder.svg`}
+                          alt="Access Slides"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </a>
+                    </div>
+                    {/* Logos */}
+  <div className="flex justify-center mt-4 gap-2">
+    <img
+      src={`${import.meta.env.BASE_URL}/logo_t.png`}
+      alt="Logo 1"
+      className="h-8 w-8 object-contain"
+    />
+    <img
+      src={`${import.meta.env.BASE_URL}/nil.png`}
+      alt="Logo 2"
+      className="h-8 w-8 object-contain"
+    />
+  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+        <hr className="my-12 border-gray-300" />
+        <h2 className="text-3xl font-bold text-blue-gray-900 mb-8 border-l-4 border-teal-950 pl-4">
+          Revision Sessions
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {pastEvents
-            .sort((a, b) => {
-              const dateA = Date.parse(a.Event_Date);
-              const dateB = Date.parse(b.Event_Date);
-              return dateB - dateA;
-            })
+            .filter((event) => event.Type === "Revision Session")
             .map((event) => (
               <div
                 key={event.Event_Name}
@@ -103,10 +240,79 @@ export default function Events() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="text-xl font-bold mb-1">{event.Event_Name}</h3>
-                  <p className="text-sm text-gray-500">Term: {event.Term}</p>
-                  <p className="text-sm text-gray-500">{event.Type}</p>
-                  <p className="text-sm text-gray-500">{event.Event_Date}</p>
+                    <h3 className="text-xl font-bold mb-1">{event.Event_Name}</h3>
+                  <div className="flex justify-between items-start">
+                    <div>
+
+                      <p className="text-sm text-gray-500">Term: {event.Term}</p>
+                      <p className="text-sm text-gray-500">{event.Type}</p>
+                      <p className="text-sm text-gray-500">{event.Event_Date}</p>
+                    </div>
+                    <div className="flex justify-center mt-4 gap-2">
+                      <img
+                        src={`${import.meta.env.BASE_URL}/logo_t.png`}
+                        alt="Logo 1"
+                        className="h-8 w-8 object-contain"
+                      />
+                      <img
+                        src={`${import.meta.env.BASE_URL}/nil.png`}
+                        alt="Logo 2"
+                        className="h-8 w-8 object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+        <hr className="my-12 border-gray-300" />
+        <h2 className="text-3xl font-bold text-blue-gray-900 mb-8 border-l-4 border-teal-950 pl-4">
+          competitions
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pastEvents
+            .filter((event) => event.Type === "Contests")
+            .map((event) => (
+              <div
+                key={event.Event_Name}
+                className="relative bg-white shadow-md rounded-lg overflow-hidden"
+              >
+                <div className="group relative">
+                  <img
+                    src={`${import.meta.env.BASE_URL}/Posters/${event.Event_Code}.png` || "https://via.placeholder.com/400x250?text=No+Image"}
+                    alt={event.Event_Name}
+                    className="w-full h-64 object-cover"
+                  />
+                  
+                </div>
+                <div className="p-4">
+                    <h3 className="text-xl font-bold mb-1">{event.Event_Name}</h3>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-sm text-gray-500">Term: {event.Term}</p>
+                      <p className="text-sm text-gray-500">{event.Type}</p>
+                      <a
+                        href={event.youtubeLink || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}/instagram.jpeg`}
+                          alt="Visit Instagram"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </a>
+                    </div>
+                    <div className="flex justify-center mt-4 gap-2">
+                      <img
+                        src={`${import.meta.env.BASE_URL}/logo_t.png`}
+                        alt="Logo 1"
+                        className="h-8 w-8 object-contain"
+                      />
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

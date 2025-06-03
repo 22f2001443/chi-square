@@ -12,19 +12,19 @@ const LINKS = [
   {
     title: "Club",
     items: [
-      { label: "About us", href: "#" },
-      { label: "People", href: "#" },
-      { label: "Resources", href: "#" },
+      { label: "About us", href: "/chi-square/#/abouts" },
+      { label: "People", href: "/chi-square/#/people" },
+      { label: "Past Events", href: "/chi-square/#/events" },
       { label: "News", href: "#" },
     ],
   },
   {
     title: "Resource",
     items: [
-      { label: "Blog", href: "#" },
-      { label: "Newsletter", href: "#" },
-      { label: "Events", href: "/events" },
-      { label: "Help center", href: "#" },
+    { label: "Blog", href: "#" },
+    { label: "Newsletter", href: "#" },
+    { label: "Research papers", href:"/chi-square/#/resources/research-papers" },
+    { label: "Help center", href: "#" },
     ],
   },
 ];

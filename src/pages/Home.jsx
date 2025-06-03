@@ -31,9 +31,9 @@ function Home() {
       </p>
     </div>
     <div className="flex items-center gap-6">
-      <h2 className="text-6xl font-bold  text-teal-950 border-r-4 border-teal-950 pr-4">5</h2>
+      <h2 className="text-6xl font-bold  text-teal-950 border-r-4 border-teal-950 pr-4">400+ </h2>
       <p className="text-xl font-medium leading-tight">
-        Core <br /> Members
+        Active <br/>Participants
       </p>
     </div>
   </div>
