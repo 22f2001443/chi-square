@@ -34,7 +34,8 @@ export default function CourseMaterial() {
      <div className="flex flex-col items-start px-4 bg-gray-50 min-h-screen w-[90%] mx-auto mt-6">
         <h2 className="text-3xl font-bold text-blue-gray-900 mb-8 border-l-4 border-teal-950 pl-4 text-left pt-4">            Get help with courses
           </h2>
-<div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">          {courses.map((course, index) => (
+<div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">    
+        {courses.map((course, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg p-6 text-center">
                 <img
   src={course.image}

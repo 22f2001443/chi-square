@@ -10,6 +10,14 @@ const LINKS = [
     ],
   },
   {
+    title: "Documents",
+    items: [
+      { label: "Term Reports", href: "/chi-square/#/reports" },
+      { label: "MoUs", href: "/chi-square/#/mou" },
+      
+    ],
+  },
+  {
     title: "Club",
     items: [
       { label: "About us", href: "/chi-square/#/abouts" },
@@ -21,10 +29,10 @@ const LINKS = [
   {
     title: "Resource",
     items: [
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/chi-square/#/blogs" },
     { label: "Newsletter", href: "#" },
     { label: "Research papers", href:"/chi-square/#/resources/research-papers" },
-    { label: "Help center", href: "#" },
+    { label: "Help center", href: "/chi-square/#/help" },
     ],
   },
 ];
@@ -67,7 +75,7 @@ export function FooterWithSocialLinks() {
             </Typography>
           </div>
 
-          <div className="grid grid-cols-3 justify-between gap-4">
+          <div className="grid grid-cols-4 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
