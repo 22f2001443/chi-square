@@ -45,7 +45,7 @@ function Home() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
       <div className="group relative w-full max-w-sm">
         <img src={`${import.meta.env.BASE_URL}/ROIFS_1.0.1.png`} alt="Research Summit" className="w-full border-4 border-white shadow-lg" />
-        <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-teal-950 text-white py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <button onClick={() => navigate('/events/upcomings')} className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-teal-950 text-white py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Learn More
         </button>
       </div>

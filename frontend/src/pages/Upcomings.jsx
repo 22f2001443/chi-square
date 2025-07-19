@@ -3,6 +3,7 @@ import { NavbarDefault } from "../components/Navbar";
 import { FooterWithSocialLinks } from "../components/Footer";
 import { FaGlobe, FaFileAlt, FaQuestionCircle, FaInfoCircle } from "react-icons/fa";
 
+
 const CardsPage = () => {
   const [activeTab, setActiveTab] = useState("event-details");
 
@@ -34,7 +35,7 @@ const CardsPage = () => {
   ];
 
   const imageUrls = [
-    "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=800&q=80",
+    `${import.meta.env.BASE_URL}/ROIFS_1.0.1.png`,
     "https://images.unsplash.com/photo-1583337130417-3346a1d3a5fd?auto=format&fit=crop&w=800&q=80",
     "https://images.unsplash.com/photo-1540553016722-983e48a2cd10?auto=format&fit=crop&w=800&q=80",
   ];
