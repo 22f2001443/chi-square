@@ -44,17 +44,17 @@ function Home() {
     <h2 className="text-3xl font-bold mb-10 text-teal-950">Announcements</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
       <div className="group relative w-full max-w-sm">
-        <img src={`${import.meta.env.BASE_URL}/poster1.jpg`} alt="Research Summit" className="w-full border-4 border-white shadow-lg" />
+        <img src={`${import.meta.env.BASE_URL}/ROIFS_1.0.1.png`} alt="Research Summit" className="w-full border-4 border-white shadow-lg" />
         <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-teal-950 text-white py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Learn More
         </button>
       </div>
-      <div className="group relative w-full max-w-sm">
+      {/* <div className="group relative w-full max-w-sm">
         <img src={`${import.meta.env.BASE_URL}/poster2.jpg`} alt="Research Carnival" className="w-full border-4 border-white shadow-lg" />
         <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-teal-950 text-white py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Learn More
         </button>
-      </div>
+      </div> */}
       {/* Uncomment the block below to add a third poster with hover button */}
       {/*
       <div className="group relative w-full max-w-sm">
