@@ -46,7 +46,7 @@ const colaborators = [
   {
     name: "Somshankar Chakraborty",
     role: "Secretary, Nilgiri House",
-    img: `${import.meta.env.BASE_URL}/team/Somsankar Chakraborty,jpg`,
+    img: `${import.meta.env.BASE_URL}/team/Somsankar_Chakraborty,jpg`,
     email: "volunteer1@iitm.ac.in",
   },
   {
