@@ -1,12 +1,50 @@
-# Chi-Square: Statistics Club
+# Nlgiri House Statistics Community (Chi-Square: Statistics Club)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website of the Nlgiri House Statistics Community (earlier known as Chi-Square Statistics Club), IIT Madras BS Degree Program.
 
-Currently, two official plugins are available:
+🌐 Live Website: https://22f2001443.github.io/chi-square/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Description
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Event announcements
+- Past event archives
+- Member profiles
+- Resources section
+- Contact form
+
+## 🛠 Tech Stack
+
+- React
+- Tailwind CSS
+- GitHub Pages (static hosting)
+
+## 📁 Project Structure
+
+```
+.
+├── frontend-react/
+│   ├── public/
+│   │   └── ...
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── FloatingHelpButton.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── Navbar.jsx
+│   │   ├── pages/
+│   │   ├── styles/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── 404.html
+│   ├── BUGS.md
+│   ├── postcss.config.cjs
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   ├── eslint.config.js
+│   ├── package.json
+│   └── package-lock.json
+└── README.md
+```
