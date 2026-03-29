@@ -1,4 +1,4 @@
-# Nlgiri House Statistics Community (Chi-Square: Statistics Club)
+# Nlgiri House Statistics Community (Nilgiri House Statistics Community)
 
 Official website of the Nlgiri House Statistics Community (earlier known as Chi-Square Statistics Club), IIT Madras BS Degree Program.
 

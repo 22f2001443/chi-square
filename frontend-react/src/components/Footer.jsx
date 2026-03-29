@@ -51,7 +51,7 @@ export function FooterWithSocialLinks() {
               className="cursor-pointer font-bold text-2xl text-blue-gray-900"
               style={{ fontFamily: "'Dancing Script', cursive" }}
             >
-              Chi-Square: Statistics Club
+              Nilgiri House Statistics Community
             </Typography>
             <br />
             <Typography
@@ -109,7 +109,7 @@ export function FooterWithSocialLinks() {
             variant="small"
             className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
           >
-            &copy; {currentYear} Chi-Square: Statistics Club. All Rights Reserved.
+            &copy; {currentYear} Nilgiri House Statistics Community. All Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
             <Typography
