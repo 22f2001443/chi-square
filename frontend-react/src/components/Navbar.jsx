@@ -220,7 +220,7 @@ export function NavbarDefault() {
               className="cursor-pointer font-bold text-lg text-blue-gray-900"
               style={{ fontFamily: "'Dancing Script', cursive" }}
             >
-              Chi-Square: Statistics Club
+              Nilgiri House Statistics Community
             </Typography>
           </div>
           <div className="flex items-center justify-end gap-x-4">
