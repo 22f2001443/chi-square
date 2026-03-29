@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'chi-square';
-  
+const target = process.env.VITE_DEPLOY_TARGET;
+
 export default defineConfig({
   plugins: [react()],
-  base: isProd ? `/${repoName}/` : '/',
+  base: target === "gh-pages" ? "/chi-square/" : "/",
   build: {
-    sourcemap: true, },
+    sourcemap: true,
+  },
 });
