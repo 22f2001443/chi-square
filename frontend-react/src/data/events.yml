@@ -1,0 +1,353 @@
+# Past events, grouped into sections on the Events page.
+#
+# Each section lists the events whose `type` matches its `type`, using one of
+# two layouts:
+#   feature: wide card with poster, details, hosts and link icons
+#   card:    compact grid card (YouTube/material links appear on hover)
+#
+# Image paths are relative to `public/`. Links are optional; only the ones
+# present are shown (youtube, linkedin, material, instagram).
+
+sections:
+  - title: Workshops/BootCamps
+    type: Bootcamp / Workshops
+    layout: feature
+    logos: [logo_t.png, nil.png]
+  - title: Academic Talks
+    type: Academic Talks
+    layout: feature
+    logos: [logo_t.png, nil.png]
+  - title: Revision Sessions
+    type: Revision Session
+    layout: card
+    logos: [logo_t.png, nil.png]
+  - title: competitions
+    type: Contests
+    layout: card
+    logos: [logo_t.png]
+
+events:
+  - name: Inauguration of Chi-Square
+    type: Academic Talks
+    date: November 11, 2023
+    time: 7:30:00 PM
+    mode: Online
+    term: September 2023
+    topic: Inaguration & Discrete Theoretical Probability Distributions
+    hosts:
+      - Samyabrata Roy
+    series: Probability Theory
+    episode: 1
+    collaboration: Nilgiri House
+    poster: Posters/S01P01/001.png
+    links:
+      material: https://drive.google.com/file/d/1iJNvRpLbSnUHKw-c80nmu1FvazPfEdt9/view?usp=sharing
+  - name: Session on Times Series
+    type: Academic Talks
+    date: March 17, 2024
+    time: 8:00:00 PM
+    mode: Online
+    term: January 2024
+    topic: Introduction to Times Series Analysis
+    hosts:
+      - Pratibha Srivastava
+      - Samyabrata Roy
+    prHost: Jay Naria
+    series: Time Series Analysis
+    collaboration: Nilgiri House
+    poster: Posters/S03TS01/001.png
+  - name: Beyond the Numbers
+    type: Academic Talks
+    date: September 28, 2024
+    time: 8:00:00 PM
+    mode: Online
+    term: May 2024
+    duration: '1:30:00'
+    participants: 28
+    topic: Basics of Probability Theory & Introduction to Random variable
+    hosts:
+      - Shrabana Paul
+      - Sukanya S
+      - Samyabrata Roy
+    prHost: Jay Naria
+    series: Probability Theory
+    episode: 2
+    collaboration: Nilgiri House
+    poster: Posters/S01P01/01.png
+    links:
+      youtube: https://youtu.be/TxNBn8h_pEI?si=M11skFJNvNEu2XCa
+  - name: Test the Truth
+    type: Academic Talks
+    date: November 4, 2024
+    time: 7:00:00 PM
+    mode: Online
+    term: September 2024
+    duration: '1:00:00'
+    participants: 20
+    topic: Basics of Hypothesis testing
+    hosts:
+      - Samyabrata Roy
+      - Sukanya S
+    series: Hypothesis Testing
+    episode: 1
+    collaboration: Nilgiri House
+    poster: Posters/S01H01/01.png
+    links:
+      youtube: https://youtu.be/LuxxVNh5iqc?si=RR98pMBhDjvFrJwA
+  - name: Beyond the Numbers 2
+    type: Academic Talks
+    date: December 3, 2024
+    time: 8:00:00 PM
+    mode: Online
+    term: September 2024
+    duration: '1:00:00'
+    participants: 18
+    topic: Continuous Theoretical Probability Distributions
+    hosts:
+      - Sukanya S
+      - Shrabana Paul
+      - Samyabrata Roy
+    series: Probability Theory
+    episode: 3
+    collaboration: Nilgiri House
+    poster: Posters/S01P01/02.png
+  - name: Test the Truth 2
+    type: Academic Talks
+    date: December 10, 2024
+    time: 8:00:00 PM
+    mode: Online
+    term: September 2024
+    duration: '1:00:00'
+    participants: 12
+    topic: Example and Application of Different Testing Methods
+    hosts:
+      - Sukanya S
+      - Shrabana Paul
+      - Samyabrata Roy
+    series: Hypothesis Testing
+    episode: 2
+    collaboration: Nilgiri House
+    poster: Posters/S01H01/02.png
+    links:
+      youtube: https://youtu.be/LuxxVNh5iqc?si=RR98pMBhDjvFrJwA
+  - name: Trendlines
+    type: Academic Talks
+    date: January 20, 2025
+    time: 8:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '0:45:00'
+    participants: 35
+    topic: Introduction to TIME SERIES ANALYSIS
+    hosts:
+      - Samyabrata Roy
+      - Sukanya S
+      - Shrabana Paul
+    series: Time Series Analysis
+    episode: 2
+    collaboration: Nilgiri House
+    poster: Posters/S03TS01/01.png
+    links:
+      youtube: https://youtu.be/R6gHEuIQBZ8?si=aGiPHcMaXwNeyl8S
+  - name: Revision Session for Statistics 2  & PYQs [Quiz 1]
+    type: Revision Session
+    date: February 16, 2025
+    time: 8:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '1:30:00'
+    participants: 15
+    topic: Statistics II [BSMA1004]
+    hosts:
+      - Sukanya S
+    series: R02S2
+    collaboration: Nilgiri House
+    poster: Posters/R02S2/012025/01.png
+    links:
+      youtube: https://youtu.be/b2irPqtPgZw?si=7kjFt7iUO2ide-Kg
+  - name: Revision Session for Statistics 1  & PYQs [Quiz 1]
+    type: Revision Session
+    date: February 17, 2025
+    time: 4:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '1:40:00'
+    participants: 45
+    topic: Statistics I [BSMA1002]
+    hosts:
+      - Shrabana Paul
+    series: R01S1
+    collaboration: Nilgiri House
+    poster: Posters/R01S1/012025/01.png
+    links:
+      youtube: https://youtu.be/YtmmJrRfdok?si=X_F2GPA8AiZO35LV
+  - name: Revision Session for Statistics 2 & PYQs [Quiz 2]
+    type: Revision Session
+    date: March 9, 2025
+    time: 4:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '2:20:00'
+    participants: 20
+    topic: Statistics II [BSMA1004]
+    hosts:
+      - Sukanya S
+      - Sinu Maria Jeeson
+    prHost: Writwik Das
+    series: R02S2
+    collaboration: Nilgiri House
+    poster: Posters/R02S2/012025/02.png
+    links:
+      youtube: https://youtu.be/37yfq05TsY8?si=rGKvawpmp8sKpHIt
+  - name: Revision Session for Statistics 1 & PYQs [Quiz 2]
+    type: Revision Session
+    date: March 13, 2025
+    time: 8:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '2:00:00'
+    participants: 23
+    topic: Statistics I [BSMA1002]
+    hosts:
+      - Samyabrata Roy
+    prHost: Writwik Das
+    series: R01S1
+    collaboration: Nilgiri House
+    poster: Posters/R01S1/012025/02.png
+    links:
+      youtube: https://youtu.be/tJfKIn81UZw?si=sQmobg2snjOSSI9d
+  - name: Revision Session for Statistics 2  & PYQs [ET]
+    type: Revision Session
+    date: April 6, 2025
+    time: 3:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '2:20:00'
+    topic: Statistics II [BSMA1004]
+    hosts:
+      - Sinu Maria Jeeson
+    prHost: Writwik Das
+    series: R02S2
+    collaboration: Nilgiri House
+    poster: Posters/R02S2/012025/03.png
+    links:
+      youtube: https://youtu.be/CMq4aWcIrMI?si=e170jodg4h-lkfpj
+  - name: Revision Session for Statistics 1 & PYQs [ET]
+    type: Revision Session
+    date: April 11, 2025
+    time: 8:00:00 PM
+    mode: Online
+    term: January 2025
+    duration: '2:00:00'
+    participants: 27
+    topic: Statistics I [BSMA1002]
+    hosts:
+      - Shrabana Paul
+    prHost: Writwik Das
+    series: R01S1
+    collaboration: Nilgiri House
+    poster: Posters/R01S1/012025/03.png
+    links:
+      youtube: https://youtu.be/e6l4ePOWw-Y?si=BmBedInZQy05GK7u
+  - name: Revision Session for MLT & PYQs [ET]
+    type: Revision Session
+    date: August 25, 2025
+    time: 8:00:00 PM
+    mode: Online
+    term: May 2025
+    participants: 24
+    topic: Machine Learnig Techniques
+    hosts:
+      - Sukanya S
+      - Samyabrata Roy
+    prHost: Writwik Das
+    series: R03MLF
+    collaboration: Nilgiri House
+    poster: Posters/R03MLT/022025/01.png
+  - name: Past–Present–Predict
+    type: Bootcamp / Workshops
+    date: May 10, 2025
+    time: 7:00:00 PM
+    mode: Online
+    term: May 2025
+    duration: '2:00:00'
+    participants: 53 (Registered)
+    topic: Time Series Bootcamp
+    hosts:
+      - Sukanya S
+      - Samyabrata Roy
+      - Sinu Maria Jeeson
+      - Shrabana Paul
+    prHost: Writwik Das
+    series: Time Series Analysis
+    episode: 3
+    collaboration: Nilgiri House
+    poster: Posters/S03TS01/W1.png
+    links:
+      material: https://drive.google.com/drive/folders/12ClefGwQjeSJu4tngpAVkYiGX1RxTFTe?usp=sharing
+      linkedin: https://www.linkedin.com/posts/samyabrata23_timeseriesanalysis-python-sarima-activity-7327649701132992512-4zvB?utm_source=share&utm_medium=member_desktop&rcm=ACoAADI0goQB2mEyMokFjiPzfy1x7-GS_G4iNbU
+      youtube: https://youtu.be/lTGWGsamhxg?si=ktl6aKg90yj7hJOw
+  - name: 'Understanding and Applying Statistics: Real-Life Uses & Research Pathways'
+    type: Bootcamp / Workshops
+    date: August 14, 2025
+    time: 7:00:00 PM
+    mode: Online
+    term: May 2025
+    duration: '1:45:00'
+    participants: |-
+      131 (Registered)
+       35 (Attendented)
+    topic: |-
+      Research Oppertunities in Statistics
+       and Application in Real life
+    guestSpeaker: Prashant Sharma;   Mail ; LinkedIN
+    hosts:
+      - Samyabrata Roy
+      - Sukanya S
+    series: GE01
+    episode: 1
+    collaboration: Nilgiri House
+    poster: Posters/GE01/01.png
+    links:
+      youtube: https://youtu.be/ofGrg6Oic9w?si=NlOgO6LgWXP2YZVL
+  - name: Guest Lecture on Privacy in Deep Learning
+    type: Academic Talks
+    date: February 4, 2026
+    time: 8:00:00 PM
+    mode: Online
+    term: January 2026
+    participants: |-
+      141 (Registered)
+      60 (Attended)
+    topic: Privacy protection in Dl and FL
+    guestSpeaker: Prof. Manisha Padala, CSE, IIT Gandhinagar
+    series: GE02
+    episode: 1
+    collaboration: Nilgiri House
+    poster: Posters/GE02/01.png
+  - name: Weekly Challenges
+    type: Contests
+    mode: Online
+    term: January 2025
+    duration: 3 WEEKS
+    participants: 28
+    hosts:
+      - Samyabrata Roy
+    series: WC01T01
+    collaboration: Nilgiri House
+    poster: Posters/WC01T01/01.png
+    links:
+      instagram: https://www.instagram.com/p/DGLamU4TDnZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+  - name: Weekly Quiz
+    type: Contests
+    mode: Online
+    term: January 2024
+    duration: 4 WEEKS
+    hosts:
+      - Samyabrata Roy
+    prHost: Jay Naria
+    series: WC01T01
+    collaboration: Nilgiri House
+    poster: Posters/WC01T01/01.png
+    links:
+      instagram: https://www.instagram.com/p/C5xKQZzy2Ct/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==

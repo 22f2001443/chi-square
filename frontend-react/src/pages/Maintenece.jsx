@@ -3,6 +3,7 @@ import { NavbarDefault } from "../components/Navbar";
 import { FooterWithSocialLinks } from "../components/Footer";
 import { Typography } from "@material-tailwind/react";
 import { Settings } from "iconoir-react";
+import site from "../data/site.yml";
 
 export default function MaintenancePage() {
   return (
@@ -17,13 +18,13 @@ export default function MaintenancePage() {
               type="h5"
               className="my-6 max-w-xl mx-auto text-gray-800 text-2xl sm:text-3xl font-semibold"
             >
-              This page is currently undergoing maintenance to improve your experience.
+              {site.maintenance.title}
             </Typography>
             <Typography
               type="lead"
               className="text-gray-600 max-w-xl mx-auto"
             >
-              Please bear with us while we make these enhancements. We&apos;ll be back shortly. Thank you for your patience!
+              {site.maintenance.message}
             </Typography>
           </div>
         </div>

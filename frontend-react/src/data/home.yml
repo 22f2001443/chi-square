@@ -1,0 +1,34 @@
+# Home page. Image paths are relative to `public/`.
+
+hero:
+  image: flyer.png
+  alt: Chi-Square Flyer
+
+# A line break in `label` ("\n") is kept when displayed.
+stats:
+  - value: "2+"
+    label: Years
+  - value: "380+"
+    label: Members
+  - value: "15+"
+    label: "Academic\nEvents"
+  - value: "400+"
+    label: "Active\nParticipants"
+
+announcements:
+  title: Announcements
+  items:
+    - image: ROIFS_1.0.1.png
+      alt: Research Summit
+      cta: Learn More
+      to: /events/upcomings
+
+backers:
+  title: Backed By
+  logos:
+    - image: IIT_Madras_Logo.png
+      alt: Collaborator 1
+    - image: nil.png
+      alt: Collaborator 3
+    - image: https://rasoriitm.vercel.app/logorasor.svg
+      alt: Collaborator 4

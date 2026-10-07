@@ -1,0 +1,28 @@
+# Events › Upcoming Events. One card per event, each with its own tabs.
+# Tab `icon` is one of: info, file, question.
+#
+# The cards below share placeholder tabs through the `&placeholder-tabs`
+# anchor; give each event its own `tabs:` list when real details are ready.
+
+events:
+  - image: ROIFS_1.0.1.png
+    registerLink: "#"
+    tabs: &placeholder-tabs
+      - label: Event Details
+        icon: info
+        title: Website Review Check Text
+        content: Because it's about motivating the doers. Because I'm here to follow my dreams and inspire other people to follow their dreams, too.
+      - label: Speaker
+        icon: file
+        title: The place is close to Barceloneta
+        content: The reading of all good books is like a conversation with the finest minds of past centuries. Follow my dreams and inspire other people.
+      - label: More Info
+        icon: question
+        title: Close to Barceloneta
+        content: Comparing yourself to others is the thief of joy. The reading of all good books is like a conversation.
+  - image: https://images.unsplash.com/photo-1583337130417-3346a1d3a5fd?auto=format&fit=crop&w=800&q=80
+    registerLink: "#"
+    tabs: *placeholder-tabs
+  - image: https://images.unsplash.com/photo-1540553016722-983e48a2cd10?auto=format&fit=crop&w=800&q=80
+    registerLink: "#"
+    tabs: *placeholder-tabs

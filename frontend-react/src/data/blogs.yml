@@ -1,0 +1,55 @@
+# Blogs page. Each post links out to LinkedIn.
+
+title: Our latest
+titleHighlight: blogs
+intro: Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.
+byline: "Chi: Squuare - Statitics Club"
+pageSize: 6
+
+# Placeholder entries: replace with real posts.
+posts:
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:ugcPost:7335920963437346816
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX
+  - title: Improved Pre-trained models for Sanskrit NLU
+    date: 18th April 2025
+    readTime: 1 min read
+    image: https://your-image-url.com/sanskrit.png
+    link: https://www.linkedin.com/feed/update/urn:li:share:XXXXXXX

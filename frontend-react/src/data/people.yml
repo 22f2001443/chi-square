@@ -1,0 +1,52 @@
+# People page. Photo paths are relative to `public/`.
+# Don't add email addresses or phone numbers here: everything in this file is
+# published on the site.
+
+coreTeam:
+  title: CORE TEAM
+  members:
+    - name: Samyabrata Roy
+      role: Founder
+      photo: team/sam.jpg
+      linkedin: https://www.linkedin.com/in/samyabrata23/
+    - name: Sukanya S
+      role: Core member [Content Team]
+      photo: team/s.jpeg
+      linkedin: https://www.linkedin.com/in/sukanya-s-04610a206/
+    - name: Shrabana Paul
+      role: Core member [Content Team]
+      photo: team/paul.jpeg
+      linkedin: https://www.linkedin.com/in/shrabana-paul-461935275/
+    - name: Sinu Maria Jeeson
+      role: Core member [Content Team]
+      photo: team/dummy.jpeg
+      linkedin: https://www.linkedin.com/in/sinu-maria-jeeson-8913951b9/
+    - name: Writwik Das
+      role: PR and Media Lead
+      photo: team/das.jpeg
+      linkedin: https://www.linkedin.com/in/writwik-das/
+
+collaborators:
+  title: Colaborators
+  members:
+    - name: Somshankar Chakraborty
+      role: Secretary, Nilgiri House
+      photo: team/Somsankar_Chakraborty.jpg
+    - name: Madhur Thareja
+      role: Deputy Secretary, RaSoR
+      photo: team/MT.jpeg
+
+volunteers:
+  title: Volenteers
+  members:
+    - name: John Doe
+      role: Volunteer
+      photo: team/john.jpg
+
+pastMembers:
+  title: Past Core Members
+  members:
+    - name: Pratibha Srivastava
+      tenure: Jan, 2024 – May, 2024
+    - name: Jay Naria
+      tenure: Jan, 2024– Sept, 2024

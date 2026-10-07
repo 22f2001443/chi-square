@@ -20,6 +20,30 @@ Description
 - Tailwind CSS
 - GitHub Pages (static hosting)
 
+## ✏️ Editing Content
+
+All text, links, people and events live in YAML files under
+`frontend-react/src/data/`. To update the site, edit these files; no JSX
+changes are needed.
+
+| File | What it controls |
+| --- | --- |
+| `site.yml` | Site name, logo, footer links, social links, maintenance message |
+| `navigation.yml` | Top navigation bar and dropdowns |
+| `home.yml` | Home page flyer, stats, announcements, backers |
+| `about.yml` | About Us page text, joining buttons, testimonials |
+| `people.yml` | Core team, collaborators, volunteers, past members |
+| `events.yml` | Past events and how they are grouped on the Events page |
+| `upcoming.yml` | Upcoming event cards |
+| `courses.yml` | Course material links |
+| `blogs.yml` | Blog posts |
+
+Image paths are relative to `frontend-react/public/`; full URLs also work.
+Links starting with `/` (e.g. `/people`) are pages on this site.
+
+Everything in these files is published, so never add email addresses, phone
+numbers or API keys to them.
+
 ## 📁 Project Structure
 
 ```
@@ -28,11 +52,12 @@ Description
 │   ├── public/
 │   │   └── ...
 │   ├── src/
-│   │   ├── assets/
+│   │   ├── data/          ← all site content (YAML)
 │   │   ├── components/
-│   │   │   ├── FloatingHelpButton.jsx
 │   │   │   ├── Footer.jsx
-│   │   │   └── Navbar.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   └── SmartLink.jsx
+│   │   ├── lib/
 │   │   ├── pages/
 │   │   ├── styles/
 │   │   ├── App.jsx

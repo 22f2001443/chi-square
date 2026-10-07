@@ -1,0 +1,22 @@
+# Resources › Course Materials. Image paths are relative to `public/`.
+# Leave a link out to hide its icon.
+
+title: Get help with courses
+
+courses:
+  - title: Statistics for Data Science I
+    courseId: BSMA1002
+    level: Foundation
+    image: c/stst1.jpg
+    links:
+      youtube: https://youtube.com/playlist?list=PLZ2ps__7DhBYrMs3zybOqr1DzMFCX49xG&si=PCfPl7V2H3ksTn5R
+      notes: https://drive.google.com/drive/folders/1FrecYyDxfFbCj2RVEsTWX4KWF1xTcIA4?usp=sharing
+      pyqs: https://drive.google.com/drive/folders/1wDnw3n0rOe0mS8C5vWPFMFp8Dt6ODA4P?usp=drive_link
+      web: https://study.iitm.ac.in/ds/course_pages/BSMA1002.html
+  - title: Statistics for Data Science II
+    courseId: BSMA1004
+    level: Foundation
+    image: c/c.png
+    links:
+      youtube: https://youtube.com/playlist?list=PLZ2ps__7DhBbLZ6RdNTIXvFdaMpvqagt0&si=0gwtSHl8KXae1uT7
+      web: https://study.iitm.ac.in/ds/course_pages/BSMA1004.html
