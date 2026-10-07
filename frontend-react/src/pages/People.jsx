@@ -45,8 +45,33 @@ function MemberGrid({ members }) {
   );
 }
 
+// Compact cards for people who have moved on; role and tenure are optional.
+function PastGrid({ members }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+      {members.map((past) => (
+        <Card key={past.name} className="bg-[#0f1c2e4b] text-center p-6 border border-gray-500 rounded-lg">
+          <Typography variant="h6" className="text-white mb-2">
+            {past.name}
+          </Typography>
+          {past.role && (
+            <Typography variant="small" className="text-gray-300">
+              {past.role}
+            </Typography>
+          )}
+          {past.tenure && (
+            <Typography variant="small" className="text-gray-300">
+              Tenure: {past.tenure}
+            </Typography>
+          )}
+        </Card>
+      ))}
+    </div>
+  );
+}
+
 export default function People() {
-  const { coreTeam, collaborators, volunteers, pastMembers } = people;
+  const { coreTeam, collaborators, volunteers, pastMembers, pastCollaborators } = people;
 
   return (
     <>
@@ -65,20 +90,10 @@ export default function People() {
     <br/>
   <div>
     <h1 className="text-4xl font-bold text-center mb-12">{pastMembers.title}</h1>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
-      {pastMembers.members.map((past) => (
-        <Card key={past.name} className="bg-[#0f1c2e4b] text-center p-6 border border-gray-500 rounded-lg">
-          <Typography variant="h6" className="text-white mb-2">
-            {past.name}
-          </Typography>
-          {past.tenure && (
-            <Typography variant="small" className="text-gray-300">
-              Tenure: {past.tenure}
-            </Typography>
-          )}
-        </Card>
-      ))}
-    </div>
+    <PastGrid members={pastMembers.members} />
+    <br/>
+    <h1 className="text-4xl font-bold text-center mb-12">{pastCollaborators.title}</h1>
+    <PastGrid members={pastCollaborators.members} />
     </div>
     </div>
     </div>

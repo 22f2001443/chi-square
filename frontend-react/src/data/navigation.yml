@@ -1,14 +1,13 @@
 # Top navigation bar. An item with `children` becomes a dropdown.
-# `icon` is one of: events, people, resources, blogs, about.
+# `icon` is one of: events, journey, people, resources, blogs, about.
 
 items:
-  - label: Events
+  - label: Upcoming Events
     icon: events
-    children:
-      - label: Upcoming Events
-        to: /events/upcomings
-      - label: Past Events
-        to: /events
+    to: /events/upcomings
+  - label: Our Journey
+    icon: journey
+    to: /events
   - label: People
     icon: people
     to: /people
