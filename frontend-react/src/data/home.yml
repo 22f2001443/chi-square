@@ -2,7 +2,7 @@
 
 hero:
   image: flyer.png
-  alt: Chi-Square Flyer
+  alt: "%SITE_NAME% flyer"
 
 # A line break in `label` ("\n") is kept when displayed.
 stats:

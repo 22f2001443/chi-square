@@ -5,7 +5,7 @@ title: club's message
 mission:
   title: Our Mission
   body: >-
-    Welcome to the Chi-Square Statistics Club. Our mission is to cultivate
+    Welcome to the %SITE_NAME%. Our mission is to cultivate
     statistical curiosity and empower students through data-driven initiatives,
     academic discussions, and collaborative events. Whether you're new to
     statistics or already immersed in it, our society welcomes you to grow,
@@ -21,7 +21,7 @@ approach:
 structure:
   title: SOCIETY'S STRUCTURE
   intro: >-
-    The Chi-Square Statistics Club at IIT Madras BS is organized to promote
+    The %SITE_NAME% at IIT Madras BS is organized to promote
     collaborative learning, academic curiosity, and peer mentoring through a
     well-defined team structure.
   points:
@@ -45,7 +45,7 @@ structure:
 benefits:
   title: BENEFITS OF JOINING US
   body: >-
-    Becoming a member of the Chi-Square Statistics Club offers you hands-on
+    Becoming a member of the %SITE_NAME% offers you hands-on
     exposure to the world of data, research, and analytical thinking. You'll
     gain experience by participating in revision sessions, academic talks, and
     collaborative projects. Network with peers and mentors, enhance your

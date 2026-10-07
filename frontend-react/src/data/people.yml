@@ -43,6 +43,7 @@ volunteers:
       role: Volunteer
       photo: team/john.jpg
 
+# `tenure` is optional; leave it out to show just the name.
 pastMembers:
   title: Past Core Members
   members:
@@ -50,3 +51,8 @@ pastMembers:
       tenure: Jan, 2024 – May, 2024
     - name: Jay Naria
       tenure: Jan, 2024– Sept, 2024
+    - name: Samyabrata Roy
+    - name: Sukanya S
+    - name: Shrabana Paul
+    - name: Sinu Maria Jeeson
+    - name: Writwik Das

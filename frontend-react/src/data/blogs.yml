@@ -3,7 +3,7 @@
 title: Our latest
 titleHighlight: blogs
 intro: Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.
-byline: "Chi: Squuare - Statitics Club"
+byline: "%SITE_NAME%"
 pageSize: 6
 
 # Placeholder entries: replace with real posts.

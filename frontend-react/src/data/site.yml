@@ -3,7 +3,9 @@
 # Image paths are relative to `public/`. Links starting with `/` are pages on
 # this site (e.g. /people); full URLs open in a new tab.
 
-name: Nilgiri House Statistics Community
+# The site's name. Write %SITE_NAME% in any other data file to insert it
+# (quote the value if it starts with %SITE_NAME%).
+name: "Chi-Square: Statistics Interest Group"
 logo: lgo.png
 favicon: logo_t.png
 

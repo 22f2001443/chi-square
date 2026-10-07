@@ -1,6 +1,6 @@
-# Nilgiri House Statistics Community
+# Chi-Square: Statistics Interest Group
 
-Official website of the Nilgiri House Statistics Community (earlier known as Chi-Square Statistics Club), IIT Madras BS Degree Program.
+Official website of the Chi-Square: Statistics Interest Group (earlier known as Chi-Square Statistics Club), IIT Madras BS Degree Program.
 
 🌐 Live Website: https://22f2001443.github.io/chi-square/
 
@@ -28,7 +28,7 @@ changes are needed.
 
 | File | What it controls |
 | --- | --- |
-| `site.yml` | Site name, logo, footer links, social links, maintenance message |
+| `site.yml` | Site name (use `%SITE_NAME%` elsewhere to insert it), logo, footer links, social links, maintenance message |
 | `navigation.yml` | Top navigation bar and dropdowns |
 | `home.yml` | Home page flyer, stats, announcements, backers |
 | `about.yml` | About Us page text, joining buttons, testimonials |

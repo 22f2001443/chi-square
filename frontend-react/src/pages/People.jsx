@@ -71,9 +71,11 @@ export default function People() {
           <Typography variant="h6" className="text-white mb-2">
             {past.name}
           </Typography>
-          <Typography variant="small" className="text-gray-300">
-            Tenure: {past.tenure}
-          </Typography>
+          {past.tenure && (
+            <Typography variant="small" className="text-gray-300">
+              Tenure: {past.tenure}
+            </Typography>
+          )}
         </Card>
       ))}
     </div>
