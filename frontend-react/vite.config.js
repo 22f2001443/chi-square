@@ -7,6 +7,6 @@ export default defineConfig({
   plugins: [react()],
   base: target === "gh-pages" ? "/chi-square/" : "/",
   build: {
-    sourcemap: true,
+    sourcemap: false,
   },
 });

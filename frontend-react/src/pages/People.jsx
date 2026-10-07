@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardBody, Typography } from "@material-tailwind/react";
-import { FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import { NavbarDefault } from "../components/Navbar";
 import { FooterWithSocialLinks } from "../components/Footer";
 
@@ -10,35 +10,30 @@ const teamMembers = [
     role: "Founder",
     img: `${import.meta.env.BASE_URL}/team/sam.jpg`,
     linkedin: "https://www.linkedin.com/in/samyabrata23/",
-    email: "22f2001443@ds.study.iitm.ac.in",
   },
   {
     name: "Sukanya S",
     role: "Core member [Content Team]",
     img: `${import.meta.env.BASE_URL}/team/s.jpeg`,
     linkedin: "https://www.linkedin.com/in/sukanya-s-04610a206/",
-    email: "23ds1000045@ds.study.iitm.ac.in",
   },
   {
     name: "Shrabana Paul",
     role: "Core member [Content Team]",
     img: `${import.meta.env.BASE_URL}/team/paul.jpeg`,
     linkedin: "https://www.linkedin.com/in/shrabana-paul-461935275/",
-    email: "23f3003958@ds.study.iitm.ac.in",
   },
   {
     name: "Sinu Maria Jeeson",
     role: "Core member    [Content Team]",
     img: `${import.meta.env.BASE_URL}/team/dummy.jpeg`,
     linkedin: "https://www.linkedin.com/in/sinu-maria-jeeson-8913951b9/",
-    email: "21f1001608@ds.study.iitm.ac.in",
   },
   {
     name: "Writwik Das",
     role: "PR and Media Lead",
     img: `${import.meta.env.BASE_URL}/team/das.jpeg`,
     linkedin: "https://www.linkedin.com/in/writwik-das/",
-    email: "24f2009043@ds.study.iitm.ac.in",
   },
 ];
 
@@ -47,13 +42,11 @@ const colaborators = [
     name: "Somshankar Chakraborty",
     role: "Secretary, Nilgiri House",
     img: `${import.meta.env.BASE_URL}/team/Somsankar_Chakraborty,jpg`,
-    email: "volunteer1@iitm.ac.in",
   },
   {
     name: "Madhur Thareja",
     role: "Deputy Secretary, RaSoR",
     img: `${import.meta.env.BASE_URL}/team/MT.jpeg`,
-    email: "volunteer2@iitm.ac.in",
   },
 ];
 
@@ -62,7 +55,6 @@ const volunteers = [
     name: "John Doe",
    role: "Volunteer",
    img: `${import.meta.env.BASE_URL}/team/john.jpg`,
-   email: "volunteer2@iitm.ac.in",
   },
 ];
 
@@ -99,9 +91,6 @@ export default function People() {
                 <a href={member.linkedin} target="_blank" rel="noreferrer">
                   <FaLinkedin className="text-yellow-400 bg-black rounded-full p-2 w-10 h-10" />
                 </a>
-                <a href={`mailto:${member.email}`}>
-                  <FaEnvelope className="text-yellow-400 bg-black rounded-full p-2 w-10 h-10" />
-                </a>
                 
               </div>
             </div>
@@ -130,13 +119,6 @@ export default function People() {
                 alt={c.name}
                 className="w-full h-64 object-cover"
               />
-              <div className="absolute top-2 left-2 flex flex-col gap-2">
-                
-                <a href={`mailto:${c.email}`}>
-                  <FaEnvelope className="text-yellow-400 bg-black rounded-full p-2 w-10 h-10" />
-                </a>
-                
-              </div>
             </div>
             <CardBody>
               <Typography variant="small" className="text-yellow-400 font-bold">
@@ -165,13 +147,6 @@ export default function People() {
                 alt={volunteer.name}
                 className="w-full h-64 object-cover"
               />
-              <div className="absolute top-2 left-2 flex flex-col gap-2">
-                
-                <a href={`mailto:${volunteer.email}`}>
-                  <FaEnvelope className="text-yellow-400 bg-black rounded-full p-2 w-10 h-10" />
-                </a>
-                
-              </div>
             </div>
             <CardBody>
               <Typography variant="small" className="text-yellow-400 font-bold">

@@ -1,7 +1,6 @@
 import React from "react";
 import { NavbarDefault } from "../components/Navbar";
 import { FooterWithSocialLinks } from "../components/Footer";
-import FloatingChat from "../components/FloatingHelpButton";
 
 function Home() {
   return (
@@ -79,7 +78,6 @@ function Home() {
         </div>
       </section>
       </main>
-     <FloatingChat/>
       <FooterWithSocialLinks/>
     </>
     
