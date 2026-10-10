@@ -6,7 +6,8 @@
 #   card:    compact grid card (YouTube/material links appear on hover)
 #
 # Image paths are relative to `public/`. Links are optional; only the ones
-# present are shown (youtube, linkedin, material, instagram).
+# present are shown (youtube, linkedin, material, instagram). `series` is a
+# code from series.yml.
 
 sections:
   - title: Workshops/BootCamps
@@ -36,7 +37,7 @@ events:
     topic: Inaguration & Discrete Theoretical Probability Distributions
     hosts:
       - Samyabrata Roy
-    series: Probability Theory
+    series: S01P01
     episode: 1
     collaboration: Nilgiri House
     poster: Posters/S01P01/001.png
@@ -53,7 +54,7 @@ events:
       - Pratibha Srivastava
       - Samyabrata Roy
     prHost: Jay Naria
-    series: Time Series Analysis
+    series: S03TS01
     collaboration: Nilgiri House
     poster: Posters/S03TS01/001.png
   - name: Beyond the Numbers
@@ -70,7 +71,7 @@ events:
       - Sukanya S
       - Samyabrata Roy
     prHost: Jay Naria
-    series: Probability Theory
+    series: S01P01
     episode: 2
     collaboration: Nilgiri House
     poster: Posters/S01P01/01.png
@@ -88,7 +89,7 @@ events:
     hosts:
       - Samyabrata Roy
       - Sukanya S
-    series: Hypothesis Testing
+    series: S01H01
     episode: 1
     collaboration: Nilgiri House
     poster: Posters/S01H01/01.png
@@ -107,7 +108,7 @@ events:
       - Sukanya S
       - Shrabana Paul
       - Samyabrata Roy
-    series: Probability Theory
+    series: S01P01
     episode: 3
     collaboration: Nilgiri House
     poster: Posters/S01P01/02.png
@@ -124,12 +125,12 @@ events:
       - Sukanya S
       - Shrabana Paul
       - Samyabrata Roy
-    series: Hypothesis Testing
+    series: S01H01
     episode: 2
     collaboration: Nilgiri House
     poster: Posters/S01H01/02.png
     links:
-      youtube: https://youtu.be/LuxxVNh5iqc?si=RR98pMBhDjvFrJwA
+      youtube: https://youtu.be/ubd_ZZA8aKw?si=WWOYlKkJoPvZMJQY
   - name: Trendlines
     type: Academic Talks
     date: January 20, 2025
@@ -143,7 +144,7 @@ events:
       - Samyabrata Roy
       - Sukanya S
       - Shrabana Paul
-    series: Time Series Analysis
+    series: S03TS01
     episode: 2
     collaboration: Nilgiri House
     poster: Posters/S03TS01/01.png
@@ -261,7 +262,7 @@ events:
       - Sukanya S
       - Samyabrata Roy
     prHost: Writwik Das
-    series: R03MLF
+    series: R03MLT
     collaboration: Nilgiri House
     poster: Posters/R03MLT/022025/01.png
   - name: Past–Present–Predict
@@ -279,7 +280,7 @@ events:
       - Sinu Maria Jeeson
       - Shrabana Paul
     prHost: Writwik Das
-    series: Time Series Analysis
+    series: S03TS01
     episode: 3
     collaboration: Nilgiri House
     poster: Posters/S03TS01/W1.png

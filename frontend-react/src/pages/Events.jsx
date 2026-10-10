@@ -2,6 +2,7 @@ import React from "react";
 import { NavbarDefault } from "../components/Navbar";
 import { FooterWithSocialLinks } from "../components/Footer";
 import eventData from "../data/events.yml";
+import seriesData from "../data/series.yml";
 import site from "../data/site.yml";
 import { asset } from "../lib/asset";
 
@@ -16,6 +17,12 @@ const LINK_ICONS = [
 function showPlaceholder(e) {
   e.currentTarget.onerror = null;
   e.currentTarget.src = asset(site.placeholderImage);
+}
+
+// "Beyond the Numbers (Probability Series)" for a series code from series.yml.
+function seriesLabel(code) {
+  const series = seriesData[code];
+  return series ? `${series.name} (${series.topic})` : code;
 }
 
 function Detail({ label, value }) {
@@ -73,7 +80,7 @@ function FeatureCard({ event, logos }) {
         <div>
           {event.date && <p className="text-sm text-gray-500">{event.date}</p>}
           <Detail label="Term" value={event.term} />
-          <Detail label="Series" value={event.series} />
+          <Detail label="Series" value={event.series && seriesLabel(event.series)} />
           <Detail label="Episode" value={event.episode} />
           <Detail label="Topic" value={event.topic} />
           {event.guestSpeaker && (

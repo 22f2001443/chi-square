@@ -1,16 +1,22 @@
 # People page. Photo paths are relative to `public/`.
-# Don't add email addresses or phone numbers here: everything in this file is
-# published on the site.
+# Never add email addresses, phone numbers or roll numbers here: everything in
+# this file ships in the site's JavaScript, even fields the page doesn't show.
+#
+# `team` and `house` come from the member roster and aren't displayed.
 
 coreTeam:
   title: CORE TEAM
   members:
-    - name: Samyabrata Roy
-      role: Founder
-      photo: team/sam.jpg
+    # - name: Samyabrata Roy
+    #   role: Founder & Club Administrator
+    #   team: Content
+    #   house: Nilgiri House
+    #   photo: team/sam.jpg
       linkedin: https://www.linkedin.com/in/samyabrata23/
     - name: Sukanya S
       role: Core member [Content Team]
+      team: Content
+      house: Saranda House
       photo: team/s.jpeg
       linkedin: https://www.linkedin.com/in/sukanya-s-04610a206/
 
@@ -36,12 +42,26 @@ pastMembers:
   title: Past Core Members
   members:
     - name: Pratibha Srivastava
+      role: Content Team
+      team: Content
+      house: Nilgiri House
       tenure: Jan, 2024 – May, 2024
     - name: Jay Naria
+      role: PR Team
+      team: PR
+      house: Nilgiri House
       tenure: Jan, 2024– Sept, 2024
     - name: Shrabana Paul
+      role: Core member [Content Team]
+      team: Content
+      house: Nilgiri House
     - name: Sinu Maria Jeeson
+      role: Core member [Content Team]
+      team: Content
     - name: Writwik Das
+      role: PR and Media Lead
+      team: PR
+      house: Nallamala House
 
 pastCollaborators:
   title: Past Collaborators

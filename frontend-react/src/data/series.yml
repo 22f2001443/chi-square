@@ -1,0 +1,33 @@
+# Event series, keyed by series code. Each event in events.yml points to one
+# of these with `series: <code>`; the Our Journey page shows the name and topic.
+
+S01P01:
+  name: Beyond the Numbers
+  topic: Probability Series
+S01H01:
+  name: Test the Truth
+  topic: Hypothesis Testing
+S03TS01:
+  name: Trendlines
+  topic: Time Series Analysis
+R01S1:
+  name: Revision Session
+  topic: Statistics I
+R02S2:
+  name: Revision Session
+  topic: Statistics II
+R03MLF:
+  name: Revision Session
+  topic: Machine Learning Foundation
+R03MLT:
+  name: Revision Session
+  topic: Machine Learning Techniques
+WC01T01:
+  name: Weekly Challenges
+  topic: Weekly Quiz Contest
+GE01:
+  name: Guest Series 01
+  topic: Research Opportunities in Statistics
+GE02:
+  name: Guest Series 02
+  topic: Privacy in Deep Learning
