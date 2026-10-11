@@ -2,7 +2,13 @@
 # Never add email addresses, phone numbers or roll numbers here: everything in
 # this file ships in the site's JavaScript, even fields the page doesn't show.
 #
-# `team` and `house` come from the member roster and aren't displayed.
+# Every field is optional: leave out `role`, `photo`, `linkedin`, `tenure`,
+# etc. and that part of the card is simply not shown. A section with no
+# members (or left out entirely) is hidden. `team` and `house` come from the
+# member roster and aren't displayed.
+
+# Shown when a member has no `photo`, or theirs fails to load.
+defaultPhoto: team/dummy.jpeg
 
 coreTeam:
   title: CORE TEAM
@@ -12,7 +18,7 @@ coreTeam:
     #   team: Content
     #   house: Nilgiri House
     #   photo: team/sam.jpg
-      linkedin: https://www.linkedin.com/in/samyabrata23/
+    #   linkedin: https://www.linkedin.com/in/samyabrata23/
     - name: Sukanya S
       role: Core member [Content Team]
       team: Content
