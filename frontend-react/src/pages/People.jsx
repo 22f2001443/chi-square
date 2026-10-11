@@ -1,8 +1,7 @@
-import React from "react";
-import { Card, CardBody, Typography } from "@material-tailwind/react";
-import { FaLinkedin } from "react-icons/fa";
-import { NavbarDefault } from "../components/Navbar";
-import { FooterWithSocialLinks } from "../components/Footer";
+import Layout from "../components/Layout";
+import Icon from "../components/Icon";
+import SmartLink from "../components/SmartLink";
+import { ButtonLink, Container, Eyebrow, PageHeader } from "../components/ui";
 import people from "../data/people.yml";
 import { asset } from "../lib/asset";
 
@@ -14,114 +13,142 @@ function showDefaultPhoto(e) {
   img.src = asset(people.defaultPhoto);
 }
 
+const membersOf = (section) => section?.members?.filter(Boolean) ?? [];
+
 function MemberCard({ member }) {
   return (
-    <Card className="bg-[#0f1c2e4b] text-center rounded-xl border-t-4 border-yellow-400 overflow-hidden">
-      <div className="relative">
-        <img
-          src={asset(member.photo ?? people.defaultPhoto)}
-          alt={member.name ?? ""}
-          className="w-full h-64 object-cover"
-          onError={showDefaultPhoto}
-        />
+    <article className="flex flex-col overflow-hidden rounded-[14px] border border-line bg-paper">
+      <img
+        src={asset(member.photo ?? people.defaultPhoto)}
+        alt={member.photo ? (member.name ?? "") : ""}
+        onError={showDefaultPhoto}
+        className="block aspect-4/5 w-full bg-surface object-cover"
+      />
+      <div className="flex items-start justify-between gap-3 px-5 pt-4.5 pb-5">
+        <div className="flex min-w-0 flex-col gap-1.5">
+          <h3 className="text-[19px] leading-snug font-semibold">{member.name}</h3>
+          {member.role && (
+            <p className="font-mono text-xs leading-normal uppercase tracking-[0.06em] text-muted">
+              {member.role}
+            </p>
+          )}
+        </div>
         {member.linkedin && (
-          <div className="absolute top-2 left-2 flex flex-col gap-2">
-            <a href={member.linkedin} target="_blank" rel="noreferrer">
-              <FaLinkedin className="text-yellow-400 bg-black rounded-full p-2 w-10 h-10" />
-            </a>
-          </div>
+          <SmartLink
+            href={member.linkedin}
+            aria-label={`${member.name} on LinkedIn`}
+            className="inline-flex size-11 shrink-0 items-center justify-center rounded-[10px] border border-line text-ink hover:border-ink"
+          >
+            <Icon name="linkedin" size={20} />
+          </SmartLink>
         )}
       </div>
-      <CardBody>
-        {member.role && (
-          <Typography variant="small" className="text-yellow-400 font-bold">
-            {String(member.role).toUpperCase()}
-          </Typography>
-        )}
-        <Typography variant="h6" className="text-white">
-          {member.name}
-        </Typography>
-      </CardBody>
-    </Card>
+    </article>
   );
 }
 
-function MemberGrid({ members }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-center">
-      {members.map((member, i) => (
-        <MemberCard key={member.name ?? i} member={member} />
-      ))}
-    </div>
-  );
-}
-
-// Compact cards for people who have moved on; role and tenure are optional.
-function PastGrid({ members }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
-      {members.map((past, i) => (
-        <Card key={past.name ?? i} className="bg-[#0f1c2e4b] text-center p-6 border border-gray-500 rounded-lg">
-          <Typography variant="h6" className="text-white mb-2">
-            {past.name}
-          </Typography>
-          {past.role && (
-            <Typography variant="small" className="text-gray-300">
-              {past.role}
-            </Typography>
-          )}
-          {past.tenure && (
-            <Typography variant="small" className="text-gray-300">
-              Tenure: {past.tenure}
-            </Typography>
-          )}
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-// A titled group of people; hidden when the section is missing or empty.
-function Section({ section, grid }) {
-  const members = section?.members?.filter(Boolean) ?? [];
+// A titled grid of photo cards; hidden when the section is missing or empty.
+function MemberSection({ section }) {
+  const members = membersOf(section);
   if (!members.length) return null;
-  const Grid = grid;
   return (
-    <>
-      {section.title && (
-        <h1 className="text-4xl font-bold text-center mb-12">{section.title}</h1>
-      )}
-      <Grid members={members} />
-    </>
+    <section aria-label={section.title} className="bg-paper">
+      <Container className="flex flex-col gap-7 border-b border-line py-14">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          {section.title && (
+            <h2 className="text-[30px] leading-tight font-semibold tracking-[-0.015em]">{section.title}</h2>
+          )}
+          {section.blurb && <p className="max-w-[32em] text-[15px] text-muted">{section.blurb}</p>}
+        </div>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6">
+          {members.map((member, i) => (
+            <MemberCard key={member.name ?? i} member={member} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+// A table of past members; hidden when the section is missing or empty.
+function AlumniTable({ section }) {
+  const members = membersOf(section);
+  if (!members.length) return null;
+  const head = "border-b border-line px-4 py-3 text-left font-mono text-xs font-medium uppercase tracking-[0.08em] text-muted";
+  const cell = "border-b border-line-soft px-4 py-3.5";
+  return (
+    <div className="flex min-w-0 flex-[1_1_460px] flex-col gap-3">
+      {section.title && <h3 className="text-xl font-semibold">{section.title}</h3>}
+      <div className="overflow-x-auto rounded-xl border border-line bg-paper">
+        <table className="w-full border-collapse text-[15px]">
+          <thead>
+            <tr>
+              <th scope="col" className={head}>Name</th>
+              <th scope="col" className={head}>Role</th>
+              <th scope="col" className={head}>Tenure</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr key={m.name ?? i}>
+                <th scope="row" className={`${cell} text-left font-semibold`}>{m.name}</th>
+                <td className={`${cell} text-body`}>{m.role ?? "—"}</td>
+                <td className={`${cell} font-mono text-[13px] whitespace-nowrap text-muted`}>{m.tenure ?? "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 
 export default function People() {
-  const { coreTeam, collaborators, volunteers, pastMembers, pastCollaborators } = people;
+  const { page = {}, coreTeam, collaborators, volunteers, alumni = {}, pastMembers, pastCollaborators, join } = people;
+  const hasAlumni = membersOf(pastMembers).length > 0 || membersOf(pastCollaborators).length > 0;
 
   return (
-    <>
-        <NavbarDefault />
-    <div className="bg-[#001f3f4b] bg-opacity-25 py-16 px-4 text-black min-h-screen">
-      <Section section={coreTeam} grid={MemberGrid} />
-   <br/>
-      <Section section={collaborators} grid={MemberGrid} />
+    <Layout>
+      <PageHeader eyebrow={page.eyebrow} title={page.title ?? "People"} lede={page.lede} className="pb-6" />
 
- <div className="bg-[#b4bdc7] bg-opacity-25 py-16 px-4 text-black min-h-screen">
-      <Section section={volunteers} grid={MemberGrid} />
+      <MemberSection section={coreTeam} />
+      <MemberSection section={collaborators} />
+      <MemberSection section={volunteers} />
 
-    <br/>
-  <div>
-    <Section section={pastMembers} grid={PastGrid} />
-    <br/>
-    <Section section={pastCollaborators} grid={PastGrid} />
-    </div>
-    </div>
-    </div>
-     <div>
-        <br/>
-     </div>
-    <FooterWithSocialLinks />
-    </>
+      {hasAlumni && (
+        <section aria-labelledby="alumni-title" className="bg-surface">
+          <Container className="flex flex-col gap-8 py-20">
+            <div className="flex flex-col gap-2.5">
+              {alumni.eyebrow && <Eyebrow>{alumni.eyebrow}</Eyebrow>}
+              <h2 id="alumni-title" className="text-[34px] leading-tight font-semibold tracking-[-0.02em]">
+                {alumni.title ?? "Alumni"}
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-8">
+              <AlumniTable section={pastMembers} />
+              <AlumniTable section={pastCollaborators} />
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {join && (
+        <section aria-labelledby="join-title" className="bg-accent text-white">
+          <Container className="flex flex-wrap items-center justify-between gap-6 py-16">
+            <div className="flex flex-[1_1_420px] flex-col gap-2.5">
+              <h2 id="join-title" className="text-[30px] leading-tight font-semibold tracking-[-0.015em]">
+                {join.title}
+              </h2>
+              {join.text && <p className="max-w-[34em] leading-relaxed text-accent-tint">{join.text}</p>}
+            </div>
+            {join.action && (
+              <ButtonLink href={join.action.href} variant="inverse">
+                {join.action.label}
+              </ButtonLink>
+            )}
+          </Container>
+        </section>
+      )}
+    </Layout>
   );
 }

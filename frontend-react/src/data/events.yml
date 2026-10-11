@@ -1,31 +1,44 @@
-# Past events, grouped into sections on the Events page.
+# Our Journey: every past event, shown newest first on a timeline grouped by
+# term.
 #
-# Each section lists the events whose `type` matches its `type`, using one of
-# two layouts:
-#   feature: wide card with poster, details, hosts and link icons
-#   card:    compact grid card (YouTube/material links appear on hover)
-#
-# Image paths are relative to `public/`. Links are optional; only the ones
-# present are shown (youtube, linkedin, material, instagram). `series` is a
-# code from series.yml.
+# Per event: `type` must match a `type` under `kinds`; `series` is a code
+# from series.yml; `collaboration` is matched against the collaborators in
+# site.yml to show their logo. Attendance is `participants` (a count) or
+# `registered` / `attended`. Links are optional and only shown when present
+# (youtube, material, linkedin, instagram). `poster` (relative to public/) is
+# shown on the Home page's latest-event cards.
 
-sections:
-  - title: Workshops/BootCamps
-    type: Bootcamp / Workshops
-    layout: feature
-    logos: [logo_t.png, nil.png]
-  - title: Academic Talks
-    type: Academic Talks
-    layout: feature
-    logos: [logo_t.png, nil.png]
-  - title: Revision Sessions
-    type: Revision Session
-    layout: card
-    logos: [logo_t.png, nil.png]
-  - title: competitions
-    type: Contests
-    layout: card
-    logos: [logo_t.png]
+page:
+  title: Every session we've run, one scroll at a time
+  lede: >-
+    Every talk, revision session, workshop and contest we've run since our
+    inauguration in November 2023, newest first.
+  scrollHint: Scroll to travel back in time
+  upNext: "Up next: see upcoming events"
+  beginning:
+    title: Where it all began
+    text: >-
+      November 2023, Nilgiri House. One online session on discrete probability
+      distributions, and a club that has kept growing every term since.
+
+# Kinds of event, in filter order. `color` marks the event on the timeline.
+kinds:
+  - type: Academic Talks
+    label: Academic talk
+    plural: Academic talks
+    color: "#2F4BD8"
+  - type: Revision Session
+    label: Revision session
+    plural: Revision sessions
+    color: "#0E8FA8"
+  - type: Bootcamp / Workshops
+    label: Workshop
+    plural: Workshops
+    color: "#8A3FD1"
+  - type: Contests
+    label: Contest
+    plural: Contests
+    color: "#D9730D"
 
 events:
   - name: Inauguration of Chi-Square
@@ -34,7 +47,7 @@ events:
     time: 7:30:00 PM
     mode: Online
     term: September 2023
-    topic: Inaguration & Discrete Theoretical Probability Distributions
+    topic: Inauguration & Discrete Theoretical Probability Distributions
     hosts:
       - Samyabrata Roy
     series: S01P01
@@ -43,13 +56,13 @@ events:
     poster: Posters/S01P01/001.png
     links:
       material: https://drive.google.com/file/d/1iJNvRpLbSnUHKw-c80nmu1FvazPfEdt9/view?usp=sharing
-  - name: Session on Times Series
+  - name: Session on Time Series
     type: Academic Talks
     date: March 17, 2024
     time: 8:00:00 PM
     mode: Online
     term: January 2024
-    topic: Introduction to Times Series Analysis
+    topic: Introduction to Time Series Analysis
     hosts:
       - Pratibha Srivastava
       - Samyabrata Roy
@@ -139,7 +152,7 @@ events:
     term: January 2025
     duration: '0:45:00'
     participants: 35
-    topic: Introduction to TIME SERIES ANALYSIS
+    topic: Introduction to Time Series Analysis
     hosts:
       - Samyabrata Roy
       - Sukanya S
@@ -150,7 +163,7 @@ events:
     poster: Posters/S03TS01/01.png
     links:
       youtube: https://youtu.be/R6gHEuIQBZ8?si=aGiPHcMaXwNeyl8S
-  - name: Revision Session for Statistics 2  & PYQs [Quiz 1]
+  - name: Revision Session for Statistics 2 & PYQs [Quiz 1]
     type: Revision Session
     date: February 16, 2025
     time: 8:00:00 PM
@@ -166,7 +179,7 @@ events:
     poster: Posters/R02S2/012025/01.png
     links:
       youtube: https://youtu.be/b2irPqtPgZw?si=7kjFt7iUO2ide-Kg
-  - name: Revision Session for Statistics 1  & PYQs [Quiz 1]
+  - name: Revision Session for Statistics 1 & PYQs [Quiz 1]
     type: Revision Session
     date: February 17, 2025
     time: 4:00:00 PM
@@ -217,7 +230,7 @@ events:
     poster: Posters/R01S1/012025/02.png
     links:
       youtube: https://youtu.be/tJfKIn81UZw?si=sQmobg2snjOSSI9d
-  - name: Revision Session for Statistics 2  & PYQs [ET]
+  - name: Revision Session for Statistics 2 & PYQs [ET]
     type: Revision Session
     date: April 6, 2025
     time: 3:00:00 PM
@@ -257,7 +270,7 @@ events:
     mode: Online
     term: May 2025
     participants: 24
-    topic: Machine Learnig Techniques
+    topic: Machine Learning Techniques
     hosts:
       - Sukanya S
       - Samyabrata Roy
@@ -272,7 +285,7 @@ events:
     mode: Online
     term: May 2025
     duration: '2:00:00'
-    participants: 53 (Registered)
+    registered: 53
     topic: Time Series Bootcamp
     hosts:
       - Sukanya S
@@ -295,20 +308,17 @@ events:
     mode: Online
     term: May 2025
     duration: '1:45:00'
-    participants: |-
-      131 (Registered)
-       35 (Attendented)
-    topic: |-
-      Research Oppertunities in Statistics
-       and Application in Real life
-    guestSpeaker: Prashant Sharma;   Mail ; LinkedIN
+    registered: 131
+    attended: 35
+    topic: Research Opportunities in Statistics and Application in Real Life
+    guestSpeaker: Prashant Sharma, Course Instructor, IITM BS Degree
     hosts:
       - Samyabrata Roy
       - Sukanya S
     series: GE01
     episode: 1
     collaboration: Nilgiri House
-    poster: Posters/GE01/01.png
+    poster: ROIFS_1.0.1.png
     links:
       youtube: https://youtu.be/ofGrg6Oic9w?si=NlOgO6LgWXP2YZVL
   - name: Guest Lecture on Privacy in Deep Learning
@@ -317,10 +327,9 @@ events:
     time: 8:00:00 PM
     mode: Online
     term: January 2026
-    participants: |-
-      141 (Registered)
-      60 (Attended)
-    topic: Privacy protection in Dl and FL
+    registered: 141
+    attended: 60
+    topic: Privacy Protection in DL and FL
     guestSpeaker: Prof. Manisha Padala, CSE, IIT Gandhinagar
     series: GE02
     episode: 1

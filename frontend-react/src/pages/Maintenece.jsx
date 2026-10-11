@@ -1,35 +1,6 @@
-import React from "react";
-import { NavbarDefault } from "../components/Navbar";
-import { FooterWithSocialLinks } from "../components/Footer";
-import { Typography } from "@material-tailwind/react";
-import { Settings } from "iconoir-react";
+import Notice from "../components/Notice";
 import site from "../data/site.yml";
 
 export default function MaintenancePage() {
-  return (
-    <>
-      <NavbarDefault />
-      <section className="min-h-screen grid place-items-center bg-gray-50 px-4 py-24">
-        <div className="container mx-auto">
-          <div className="text-center">
-            <Settings className="h-16 w-16 mx-auto text-indigo-600" />
-            <Typography
-              as="h2"
-              type="h5"
-              className="my-6 max-w-xl mx-auto text-gray-800 text-2xl sm:text-3xl font-semibold"
-            >
-              {site.maintenance.title}
-            </Typography>
-            <Typography
-              type="lead"
-              className="text-gray-600 max-w-xl mx-auto"
-            >
-              {site.maintenance.message}
-            </Typography>
-          </div>
-        </div>
-      </section>
-      <FooterWithSocialLinks />
-    </>
-  );
+  return <Notice title={site.maintenance?.title} message={site.maintenance?.message} />;
 }

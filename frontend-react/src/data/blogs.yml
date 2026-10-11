@@ -1,9 +1,14 @@
-# Blogs page. Each post links out to LinkedIn.
+# Blogs: shown on the Blogs page and at the bottom of Resources. Each post
+# links out to LinkedIn. `image` is optional (a full URL or a path relative to
+# `public/`).
 
-title: Our latest
-titleHighlight: blogs
-intro: Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.
-byline: "%SITE_NAME%"
+eyebrow: Blogs
+title: From the community
+intro: Write-ups, explainers and event recaps from the Chi-Square community.
+allPosts:
+  label: All posts on LinkedIn
+  href: https://www.linkedin.com/company/chi-square-statistics-club/
+# Posts shown before "Show more".
 pageSize: 6
 
 # Placeholder entries: replace with real posts.

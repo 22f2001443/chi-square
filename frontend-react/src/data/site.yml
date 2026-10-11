@@ -1,4 +1,4 @@
-# Site-wide settings: name, logo, footer and social links.
+# Site-wide settings: name, logo, footer, social links and collaborators.
 #
 # Image paths are relative to `public/`. Links starting with `/` are pages on
 # this site (e.g. /people); full URLs open in a new tab.
@@ -6,18 +6,22 @@
 # The site's name. Write %SITE_NAME% in any other data file to insert it
 # (quote the value if it starts with %SITE_NAME%).
 name: "Chi-Square: Statistics Interest Group"
-logo: lgo.png
+# The two halves of the name, shown stacked in the navigation bar and hero.
+shortName: Chi-Square
+tagline: Statistics Interest Group
+# Used for search engines and link previews.
+description: >-
+  Chi-Square is the statistics interest group of the IIT Madras BS Degree:
+  academic talks, revision sessions, workshops and contests for students.
+logo: logo_t.png
 favicon: logo_t.png
 
-# Shown when an event poster or other image fails to load.
-placeholderImage: logo_t.png
-
 footer:
-  hostedBy: NILGIRI HOUSE
+  hostedBy: Nilgiri House
   institution: BS Degree, Indian Institute of Technology Madras
   location: Chennai, Tamil Nadu
   linkGroups:
-    - title: Quick Links
+    - title: Quick links
       links:
         - label: IIT Madras BS Degree
           href: https://study.iitm.ac.in/ds/
@@ -25,12 +29,6 @@ footer:
           href: https://sites.google.com/ds.study.iitm.ac.in/nilgirihouse
         - label: RaSoR Society
           href: https://rasoriitm.vercel.app/
-    - title: Documents
-      links:
-        - label: Term Reports
-          href: /reports
-        - label: MoUs
-          href: /mou
     - title: Club
       links:
         - label: About us
@@ -39,33 +37,44 @@ footer:
           href: /people
         - label: Our Journey
           href: /events
-        - label: News
-          href: "#"
-    - title: Resource
+    - title: Resources
       links:
-        - label: Blog
+        - label: Course materials
+          href: /resources/course-materials
+        - label: Blogs
           href: /blogs
-        - label: Newsletter
-          href: "#"
         - label: Research papers
           href: /resources/research-papers
-        - label: Help center
-          href: /help
 
 socials:
   - label: LinkedIn
     href: https://www.linkedin.com/company/chi-square-statistics-club/
-    icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg
   - label: Instagram
     href: https://www.instagram.com/chisquare_iitmbs/
-    icon: https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png
   - label: YouTube
     href: https://www.youtube.com/watch?v=lTGWGsamhxg&list=PLdPxneWYhyUP2lsZWjhkRYM8KB_Rg8wln
-    icon: https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg
   - label: GitHub
     href: https://github.com/22f2001443/chi-square
-    icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg
+
+# Partners. An event's `collaboration` in events.yml is matched against
+# `name` here to show the logo on its card; `logo` is optional.
+collaborators:
+  - name: Nilgiri House
+    role: Our host house
+    logo: nil.png
+    href: https://sites.google.com/ds.study.iitm.ac.in/nilgirihouse
+  - name: RaSoR Society
+    role: Collaborator
+    href: https://rasoriitm.vercel.app/
+  - name: IIT Madras BS Degree
+    role: Our programme
+    logo: IIT_Madras_Logo.png
+    href: https://study.iitm.ac.in/ds/
 
 maintenance:
-  title: This page is currently undergoing maintenance to improve your experience.
-  message: Please bear with us while we make these enhancements. We'll be back shortly. Thank you for your patience!
+  title: This page is being built
+  message: We're putting this section together. Check back soon.
+
+notFound:
+  title: Page not found
+  message: The page you're looking for doesn't exist or has moved.

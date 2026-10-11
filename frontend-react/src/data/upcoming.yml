@@ -1,28 +1,42 @@
-# Events › Upcoming Events. One card per event, each with its own tabs.
-# Tab `icon` is one of: info, file, question.
-#
-# The cards below share placeholder tabs through the `&placeholder-tabs`
-# anchor; give each event its own `tabs:` list when real details are ready.
+# Events › Upcoming Events.
 
-events:
-  - image: ROIFS_1.0.1.png
-    registerLink: "#"
-    tabs: &placeholder-tabs
-      - label: Event Details
-        icon: info
-        title: Website Review Check Text
-        content: Because it's about motivating the doers. Because I'm here to follow my dreams and inspire other people to follow their dreams, too.
-      - label: Speaker
-        icon: file
-        title: The place is close to Barceloneta
-        content: The reading of all good books is like a conversation with the finest minds of past centuries. Follow my dreams and inspire other people.
-      - label: More Info
-        icon: question
-        title: Close to Barceloneta
-        content: Comparing yourself to others is the thief of joy. The reading of all good books is like a conversation.
-  - image: https://images.unsplash.com/photo-1583337130417-3346a1d3a5fd?auto=format&fit=crop&w=800&q=80
-    registerLink: "#"
-    tabs: *placeholder-tabs
-  - image: https://images.unsplash.com/photo-1540553016722-983e48a2cd10?auto=format&fit=crop&w=800&q=80
-    registerLink: "#"
-    tabs: *placeholder-tabs
+page:
+  eyebrow: Upcoming events
+  title: What's next at Chi-Square
+  lede: >-
+    Talks, revision sessions and workshops for the IIT Madras BS Degree
+    community. Registration links appear here as soon as an event is
+    announced.
+
+# Shown below the upcoming events (or on its own when there are none).
+follow:
+  title: Nothing else is scheduled yet
+  emptyTitle: Nothing is scheduled right now
+  text: >-
+    Follow us to hear about new sessions first. Recordings of past events
+    live on our YouTube channel.
+
+recent:
+  title: Recently concluded
+  count: 3
+
+# Each upcoming event gets a featured card. Only `title` is required; leave
+# out anything you don't know yet. `poster` is relative to `public/`.
+# Copy this template:
+#
+#   - title: Event title
+#     series: S01P01
+#     status: Registration open
+#     date: 1 January 2027
+#     time: 7:00 PM IST
+#     where: Online · Google Meet
+#     speaker: Speaker name, role
+#     poster: Posters/S01P01/03.png
+#     registerLink: https://forms.gle/...
+#     calendarLink: https://calendar.google.com/...
+#     tabs:
+#       - label: Details
+#         content: What the session covers and who it is for.
+#       - label: Speaker
+#         content: A line about the speaker.
+events: []

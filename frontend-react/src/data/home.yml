@@ -1,34 +1,62 @@
-# Home page. Image paths are relative to `public/`.
+# Home page. The hero title comes from site.yml (shortName + tagline).
 
 hero:
-  image: flyer.png
-  alt: "%SITE_NAME% flyer"
+  eyebrow: IIT Madras · BS Degree · Since 2023
+  lede: >-
+    Fostering data-driven curiosity, exploration, and applied statistical
+    learning within the IIT Madras BS Degree community.
+  actions:
+    - label: See upcoming events
+      to: /events/upcomings
+      style: primary
+    - label: Explore our journey
+      to: /events
+      style: secondary
 
-# A line break in `label` ("\n") is kept when displayed.
 stats:
   - value: "2+"
     label: Years
   - value: "380+"
     label: Members
   - value: "15+"
-    label: "Academic\nEvents"
+    label: Academic events
   - value: "400+"
-    label: "Active\nParticipants"
+    label: Active participants
 
-announcements:
-  title: Announcements
+# The most recent events from events.yml.
+latest:
+  eyebrow: Our journey
+  title: Latest from Chi-Square
+  count: 3
+
+# One card per kind of event; the count is worked out from events.yml.
+# `type` matches a `type` in events.yml.
+formats:
+  eyebrow: What we do
+  title: Four ways to learn statistics with us
   items:
-    - image: ROIFS_1.0.1.png
-      alt: Research Summit
-      cta: Learn More
-      to: /events/upcomings
+    - type: Academic Talks
+      text: Deep-dives from probability and hypothesis testing to time series, plus guest lectures.
+    - type: Revision Session
+      text: Quiz and end-term revision with PYQs for Statistics I, Statistics II and MLT.
+    - type: Bootcamp / Workshops
+      text: Hands-on sessions like the Past–Present–Predict time series bootcamp.
+    - type: Contests
+      text: Weekly quizzes and challenges that run over three to four weeks.
 
-backers:
-  title: Backed By
-  logos:
-    - image: IIT_Madras_Logo.png
-      alt: Collaborator 1
-    - image: nil.png
-      alt: Collaborator 3
-    - image: https://rasoriitm.vercel.app/logorasor.svg
-      alt: Collaborator 4
+# Lists the collaborators from site.yml.
+partners:
+  title: In collaboration with
+
+join:
+  title: Join the community
+  text: >-
+    Get hands-on exposure to data, research, and analytical thinking through
+    revision sessions, academic talks, and collaborative projects.
+  actions:
+    - label: Become a member
+      href: /membership-form
+      style: primary
+    - label: Join our core team
+      href: /core-team-application
+      style: secondary

@@ -1,111 +1,118 @@
-import React from "react";
-import { NavbarDefault } from "../components/Navbar";
-import { FooterWithSocialLinks } from "../components/Footer";
-import SmartLink from "../components/SmartLink";
+import Layout from "../components/Layout";
+import { Actions, Container, Eyebrow, PageHeader } from "../components/ui";
 import about from "../data/about.yml";
 
-const ACTION_STYLES = {
-  primary: "bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-100 transition",
-  secondary: "border-2 border-white text-white font-semibold px-6 py-3 rounded hover:bg-white hover:text-black transition",
-};
-
-export default function SocietyMessage() {
-  const { mission, approach, structure, benefits, testimonials } = about;
+export default function About() {
+  const { hero = {}, mission, approach, structure = {}, benefits, testimonials = {} } = about;
+  const points = (structure.points ?? []).filter(Boolean);
+  const teams = (structure.teams ?? []).filter(Boolean);
+  const quotes = (testimonials.items ?? []).filter(Boolean);
 
   return (
-    <>
-      <NavbarDefault />
-      <div className="relative bg-white py-16 px-4">
-        {/* Background Title */}
-        <h1 className="text-[36px] sm:text-[60px] md:text-[72px] lg:text-[96px] xl:text-[108px] tracking-wide text-center font-bold absolute inset-x-0 top-1 sm:-top-4 bg-gradient-to-b from-black to-slate-50 inline-block text-transparent bg-clip-text opacity-10 pointer-events-none uppercase whitespace-nowrap overflow-x-auto px-2">
-          {about.title}
-        </h1>
+    <Layout>
+      <PageHeader eyebrow={hero.eyebrow} title={hero.title ?? "About us"} lede={hero.lede} className="pb-14" />
 
-        {/* Main Heading */}
-        <div className="flex justify-center items-center py-6 xs:py-3 xl:py-8 md:py-5 border-b-2 border-black relative z-10">
-          <h1 className="text-[24px] sm:text-[36px] md:text-[44px] lg:text-[56px] xl:text-[64px] font-medium uppercase whitespace-nowrap overflow-x-auto px-2">
-            {about.title}
-          </h1>
-        </div>
-
-        {/* OUR MISSION */}
-        <section className="max-w-7xl w-[90%] mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row items-start gap-6">
-            <h2 className="text-5xl font-bold text-blue-gray-900 whitespace-nowrap">
-              {mission.title}
-            </h2>
-            <div className="border-l-4 border-teal-950 pl-6 text-justify text-lg text-gray-700">
-              {mission.body}
-            </div>
-          </div>
+      {(mission || approach) && (
+        <section aria-label="Mission and approach" className="bg-paper">
+          <Container className="flex flex-wrap gap-6 pb-24">
+            {mission && (
+              <div className="flex flex-[1_1_440px] flex-col gap-4 rounded-2xl bg-ink p-9 text-on-ink">
+                <Eyebrow tone="onInk">01 · {mission.label}</Eyebrow>
+                <p className="text-[22px] leading-normal font-medium">{mission.body}</p>
+              </div>
+            )}
+            {approach && (
+              <div className="flex flex-[1_1_440px] flex-col gap-4 rounded-2xl border border-line p-9">
+                <Eyebrow tone="muted">02 · {approach.label}</Eyebrow>
+                <p className="text-[22px] leading-normal font-medium">{approach.body}</p>
+              </div>
+            )}
+          </Container>
         </section>
-        <hr className="border-gray-300 my-8" />
+      )}
 
-        {/* HOW WE DO? */}
-        <section className="max-w-7xl w-[90%] mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row-reverse items-start gap-6">
-            <h2 className="text-5xl font-bold text-blue-gray-900 whitespace-nowrap">
-              {approach.title}
-            </h2>
-            <div className="border-r-4 border-teal-950 pr-6 text-justify text-lg text-gray-700">
-              {approach.body}
+      {(points.length > 0 || teams.length > 0) && (
+        <section aria-labelledby="structure-title" className="bg-surface">
+          <Container className="flex flex-col gap-10 py-24">
+            <div className="flex max-w-180 flex-col gap-3">
+              {structure.eyebrow && <Eyebrow>{structure.eyebrow}</Eyebrow>}
+              <h2 id="structure-title" className="text-[40px] leading-[1.1] font-semibold tracking-[-0.02em]">
+                {structure.title}
+              </h2>
+              {structure.intro && <p className="text-[17px] leading-relaxed text-muted">{structure.intro}</p>}
             </div>
-          </div>
+            {points.length > 0 && (
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+                {points.map((p, i) => (
+                  <div key={p.label} className="flex flex-col gap-3 rounded-[14px] border border-line bg-paper p-7">
+                    <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="text-[19px] font-semibold">{p.label}</h3>
+                    <p className="text-[15px] leading-relaxed text-body">{p.text}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            {teams.length > 0 && (
+              <div className="flex flex-col gap-4">
+                {structure.teamsTitle && <h3 className="text-2xl font-semibold">{structure.teamsTitle}</h3>}
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
+                  {teams.map((t) => (
+                    <div key={t.name} className="flex items-start gap-4 rounded-[14px] border border-line bg-paper p-6">
+                      {t.code && (
+                        <span
+                          aria-hidden="true"
+                          className="inline-flex size-11 shrink-0 items-center justify-center rounded-[10px] bg-accent-soft font-mono text-sm font-medium text-accent-strong"
+                        >
+                          {t.code}
+                        </span>
+                      )}
+                      <div className="flex flex-col gap-1.5">
+                        <h4 className="text-[17px] font-semibold">{t.name}</h4>
+                        {t.text && <p className="text-[15px] leading-relaxed text-muted">{t.text}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </Container>
         </section>
-        <hr className="border-gray-300 my-8" />
+      )}
 
-        {/* SOCIETY'S STRUCTURE */}
-        <section className="max-w-7xl mx-auto px-4 py-12 bg-gray-100 rounded-lg shadow-inner">
-          <h2 className="text-3xl font-bold text-center border-b-4 border-yellow-500 inline-block mb-8 px-4">
-            {structure.title}
-          </h2>
-          <div className="text-lg text-gray-800 px-4 space-y-4">
-            <p>{structure.intro}</p>
-            {structure.points.map((point) => (
-              <p key={point.label}><strong>{point.label}:</strong> {point.text}</p>
-            ))}
-            <p><strong>{structure.teamsLabel}:</strong></p>
-            <ul className="list-disc list-inside pl-4">
-              {structure.teams.map((team) => (
-                <li key={team.name}><strong>{team.name}:</strong> {team.text}</li>
+      {benefits && (
+        <section aria-labelledby="benefits-title" className="bg-ink text-on-ink">
+          <Container className="flex flex-wrap items-start gap-x-18 gap-y-10 py-24">
+            <div className="flex flex-[1_1_360px] flex-col gap-3">
+              {benefits.eyebrow && <Eyebrow tone="onInk">{benefits.eyebrow}</Eyebrow>}
+              <h2 id="benefits-title" className="text-[40px] leading-[1.1] font-semibold tracking-[-0.02em]">
+                {benefits.title}
+              </h2>
+            </div>
+            <div className="flex flex-[1.4_1_480px] flex-col gap-7">
+              {benefits.body && <p className="text-lg leading-[1.7] text-on-ink-soft">{benefits.body}</p>}
+              <Actions actions={benefits.actions} on="inkInverse" />
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {quotes.length > 0 && (
+        <section aria-labelledby="voices-title" className="bg-paper">
+          <Container className="flex flex-col gap-8 py-24">
+            <h2 id="voices-title" className="text-[34px] leading-tight font-semibold tracking-[-0.02em]">
+              {testimonials.title}
+            </h2>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
+              {quotes.map((q) => (
+                <figure key={q.author} className="flex flex-col gap-5 rounded-2xl border border-line p-8">
+                  <blockquote className="text-[21px] leading-normal font-medium">“{q.quote}”</blockquote>
+                  <figcaption className="font-mono text-[13px] tracking-[0.04em] text-muted">— {q.author}</figcaption>
+                </figure>
               ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* BENEFITS OF JOINING US */}
-        <section className="w-[90%] mx-auto px-6 py-10 bg-black text-white rounded-3xl mt-12">
-          <h2 className="text-3xl font-bold text-center mb-6 uppercase">{benefits.title}</h2>
-          <p className="text-lg text-justify leading-relaxed">
-            {benefits.body}
-          </p>
-          <div className="flex justify-center gap-4 mt-8 flex-wrap">
-            {benefits.actions.map((action) => (
-              <SmartLink key={action.label} href={action.href} className={ACTION_STYLES[action.style] ?? ACTION_STYLES.primary}>
-                {action.label}
-              </SmartLink>
-            ))}
-          </div>
-        </section>
-      </div>
-
-      {/* TESTIMONIALS */}
-      <section className="w-[90%] mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-10 uppercase border-l-4 border-black pl-4">{testimonials.title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.items.map((t) => (
-            <div key={t.author} className="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
-              <p className="text-gray-700 italic mb-4">
-                “{t.quote}”
-              </p>
-              <div className="text-sm font-semibold text-gray-900">— {t.author}</div>
             </div>
-          ))}
-        </div>
-      </section>
-          <hr className="border-gray-300 my-8" />
-
-      <FooterWithSocialLinks />
-    </>
+          </Container>
+        </section>
+      )}
+    </Layout>
   );
 }

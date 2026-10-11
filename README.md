@@ -28,14 +28,15 @@ changes are needed.
 
 | File | What it controls |
 | --- | --- |
-| `site.yml` | Site name (use `%SITE_NAME%` elsewhere to insert it), logo, footer links, social links, maintenance message |
-| `navigation.yml` | Top navigation bar and dropdowns |
-| `home.yml` | Home page flyer, stats, announcements, backers |
-| `about.yml` | About Us page text, joining buttons, testimonials |
-| `people.yml` | Core team, collaborators, volunteers, past members |
-| `events.yml` | Past events and how they are grouped on the Events page |
-| `upcoming.yml` | Upcoming event cards |
-| `courses.yml` | Course material links |
+| `site.yml` | Site name (use `%SITE_NAME%` elsewhere to insert it), short name and tagline, description, logo, footer, social links, collaborators and their logos |
+| `navigation.yml` | Top navigation bar |
+| `home.yml` | Home page hero, stats, latest events, "What we do", partners, join band |
+| `events.yml` | Our Journey timeline: every past event, plus the kinds of event and their colours |
+| `series.yml` | Event series names and topics, referenced from `events.yml` |
+| `upcoming.yml` | Upcoming events (with a template to copy) |
+| `people.yml` | Core team, collaborators, volunteers and alumni |
+| `about.yml` | About Us page |
+| `courses.yml` | Resources page: course materials and library |
 | `blogs.yml` | Blog posts |
 
 Image paths are relative to `frontend-react/public/`; full URLs also work.
@@ -53,20 +54,16 @@ numbers or API keys to them.
 │   │   └── ...
 │   ├── src/
 │   │   ├── data/          ← all site content (YAML)
-│   │   ├── components/
-│   │   │   ├── Footer.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   └── SmartLink.jsx
-│   │   ├── lib/
+│   │   ├── components/    ← Layout, Navbar, Footer and shared UI
+│   │   ├── lib/           ← event and asset helpers
 │   │   ├── pages/
-│   │   ├── styles/
+│   │   ├── styles/        ← Tailwind theme and timeline animation
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   ├── index.html
 │   ├── 404.html
 │   ├── BUGS.md
 │   ├── postcss.config.cjs
-│   ├── tailwind.config.js
 │   ├── vite.config.js
 │   ├── eslint.config.js
 │   ├── package.json

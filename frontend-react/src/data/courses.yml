@@ -1,7 +1,14 @@
-# Resources › Course Materials. Image paths are relative to `public/`.
-# Leave a link out to hide its icon.
+# Resources page: course materials and the library. Image paths are relative
+# to `public/`. Course links are optional; leave one out to hide it.
 
-title: Get help with courses
+page:
+  eyebrow: Resources
+  title: Study with Chi-Square
+  lede: >-
+    Playlists, notes and previous-year questions for the BS Degree statistics
+    courses, plus write-ups from our community.
+
+coursesTitle: Course materials
 
 courses:
   - title: Statistics for Data Science I
@@ -20,3 +27,13 @@ courses:
     links:
       youtube: https://youtube.com/playlist?list=PLZ2ps__7DhBbLZ6RdNTIXvFdaMpvqagt0&si=0gwtSHl8KXae1uT7
       web: https://study.iitm.ac.in/ds/course_pages/BSMA1004.html
+
+# Library shelves. `status` shows as a badge; add `to:` once a shelf has a page.
+libraryTitle: Library
+library:
+  - title: Books
+    status: In progress
+    text: A reading list for probability, inference and data science. Check back soon.
+  - title: Research papers
+    status: In progress
+    text: Papers and briefs from our content & research team. Check back soon.

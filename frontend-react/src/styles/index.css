@@ -1,3 +1,118 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+/* Design tokens for the "Degrees of Freedom" look: ink and paper, IBM Plex,
+   one blue accent. Event-kind colours live in src/data/events.yml. */
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-ink: #0f1115;
+  --color-ink-line: #22252c;
+  --color-ink-edge: #3a3f4a;
+  --color-on-ink: #f4f5f7;
+  --color-on-ink-soft: #d5d8df;
+  --color-on-ink-link: #c9cdd6;
+  --color-on-ink-muted: #a9afbc;
+
+  --color-paper: #ffffff;
+  --color-surface: #f4f5f7;
+  --color-line: #e2e4e9;
+  --color-line-soft: #eef0f3;
+  --color-field: #cdd1d9;
+  --color-body: #3a3f4a;
+  --color-muted: #5b616e;
+
+  --color-accent: #2f4bd8;
+  --color-accent-strong: #2238a8;
+  --color-accent-soft: #e9edff;
+  --color-accent-bright: #6e86ff;
+  --color-accent-tint: #e6eaff;
+}
+
+@layer base {
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-accent-bright);
+    outline-offset: 3px;
+  }
+}
+
+/* Our Journey timeline: scroll-driven motion where the browser supports it,
+   a static timeline everywhere else, and no motion for reduced-motion users. */
+.tl-wrap {
+  view-timeline: --tl block;
+}
+.tl-progress {
+  display: none;
+}
+.tl-fill {
+  transform-origin: 50% 0;
+}
+
+@keyframes tl-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes tl-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes tl-in {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tl-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tl-pop {
+  from { transform: scale(0); }
+  60% { transform: scale(1.4); }
+  to { transform: scale(1); }
+}
+@keyframes tl-nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tl-hint {
+    animation: tl-nudge 1.8s ease-in-out infinite;
+  }
+  @supports (animation-timeline: view()) {
+    .tl-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: var(--color-accent);
+      transform-origin: 0 50%;
+      z-index: 50;
+      animation: tl-progress linear both;
+      animation-timeline: scroll(root);
+    }
+    .tl-fill {
+      animation: tl-grow linear both;
+      animation-timeline: --tl;
+      animation-range: cover 0% cover 100%;
+    }
+    .tl-card {
+      animation: tl-in ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+    .tl-date {
+      animation: tl-fade ease-out both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+    .tl-node {
+      animation: tl-pop ease-out both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 40%;
+    }
+  }
+}

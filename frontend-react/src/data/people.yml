@@ -10,8 +10,17 @@
 # Shown when a member has no `photo`, or theirs fails to load.
 defaultPhoto: team/dummy.jpeg
 
+page:
+  eyebrow: People
+  title: The people behind Chi-Square
+  lede: >-
+    A student-run team from the IIT Madras BS Degree, working alongside
+    Nilgiri House and RaSoR Society.
+
+# Current sections show photo cards; `blurb` is optional.
 coreTeam:
-  title: CORE TEAM
+  title: Core team
+  blurb: Students who plan and run every session.
   members:
     # - name: Samyabrata Roy
     #   role: Founder & Club Administrator
@@ -27,7 +36,8 @@ coreTeam:
       linkedin: https://www.linkedin.com/in/sukanya-s-04610a206/
 
 collaborators:
-  title: Colaborators
+  title: Collaborators
+  blurb: Partners from Nilgiri House and RaSoR Society.
   members:
     - name: Somshankar Chakraborty
       role: Secretary, Nilgiri House
@@ -37,15 +47,21 @@ collaborators:
       photo: team/MT.jpeg
 
 volunteers:
-  title: Volenteers
+  title: Volunteers
+  blurb: People who help out at events.
   members:
     - name: John Doe
       role: Volunteer
       photo: team/john.jpg
 
+# Past sections are listed in tables under this heading.
+alumni:
+  eyebrow: Alumni
+  title: Thank you to everyone who built Chi-Square with us
+
 # Past sections: `role` and `tenure` are optional.
 pastMembers:
-  title: Past Core Members
+  title: Past core members
   members:
     - name: Pratibha Srivastava
       role: Content Team
@@ -70,9 +86,18 @@ pastMembers:
       house: Nallamala House
 
 pastCollaborators:
-  title: Past Collaborators
+  title: Past collaborators
   members:
     - name: Somshankar Chakraborty
       role: Secretary, Nilgiri House
     - name: Madhur Thareja
       role: Deputy Secretary, RaSoR
+
+join:
+  title: Want to help run Chi-Square?
+  text: >-
+    We're always looking for people for our content & research, PR & social
+    media, and design & web teams.
+  action:
+    label: Join our core team
+    href: /core-team-application

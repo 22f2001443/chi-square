@@ -22,8 +22,9 @@ function fillSiteName(value, name) {
   return value;
 }
 
-// Fills the %SITE_NAME% and %SITE_FAVICON% placeholders in index.html from
-// site.yml, and reloads every YAML file in dev when site.yml changes.
+// Fills the %SITE_NAME%, %SITE_DESCRIPTION% and %SITE_FAVICON% placeholders in
+// index.html from site.yml, and reloads every YAML file in dev when site.yml
+// changes.
 function siteMeta() {
   return {
     name: "site-meta",
@@ -41,6 +42,7 @@ function siteMeta() {
         const site = readSite();
         return html
           .replaceAll("%SITE_NAME%", site.name)
+          .replaceAll("%SITE_DESCRIPTION%", site.description ?? "")
           .replaceAll("%SITE_FAVICON%", `/${site.favicon}`);
       },
     },
