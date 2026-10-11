@@ -10,7 +10,7 @@ export function Container({ className = "", children }) {
 export function Eyebrow({ tone = "accent", className = "", children }) {
   const color = { accent: "text-accent", muted: "text-muted", onInk: "text-on-ink-muted" }[tone];
   return (
-    <p className={`font-mono text-[13px] uppercase tracking-widest ${color} ${className}`}>
+    <p className={`font-mono text-xs uppercase tracking-widest ${color} ${className}`}>
       {children}
     </p>
   );
@@ -79,15 +79,15 @@ export function ArrowLink({ href, icon = "arrowRight", className = "", children 
 export function PageHeader({ eyebrow, title, lede, className = "" }) {
   return (
     <section aria-labelledby="page-title" className="bg-paper">
-      <Container className={`flex flex-col gap-4 pt-20 pb-10 ${className}`}>
+      <Container className={`flex flex-col gap-4 pt-14 pb-8 ${className}`}>
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
         <h1
           id="page-title"
-          className="max-w-[16em] text-[clamp(40px,5vw,60px)] leading-[1.05] font-semibold tracking-[-0.025em]"
+          className="max-w-[16em] text-[clamp(36px,4.5vw,54px)] leading-[1.05] font-semibold tracking-[-0.025em]"
         >
           {title}
         </h1>
-        {lede && <p className="max-w-[38em] text-lg leading-relaxed text-muted">{lede}</p>}
+        {lede && <p className="max-w-[38em] text-base leading-relaxed text-muted">{lede}</p>}
       </Container>
     </section>
   );

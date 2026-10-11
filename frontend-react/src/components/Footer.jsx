@@ -8,11 +8,11 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink text-on-ink-link">
-      <div className="mx-auto flex max-w-300 flex-col gap-12 px-6 pt-16 pb-8">
-        <div className="flex flex-wrap gap-x-16 gap-y-10">
+      <div className="mx-auto flex max-w-300 flex-col gap-10 px-6 pt-12 pb-8">
+        <div className="flex flex-wrap gap-x-12 gap-y-8">
           <div className="flex flex-[1_1_280px] flex-col gap-3">
-            <span className="text-lg font-semibold text-on-ink">{site.name}</span>
-            <p className="text-sm leading-relaxed">
+            <span className="text-base font-semibold text-on-ink">{site.name}</span>
+            <p className="text-[13px] leading-relaxed">
               {footer.hostedBy && (
                 <>
                   Hosted by {footer.hostedBy}
@@ -34,7 +34,7 @@ export default function Footer() {
                 {group.title}
               </h2>
               {(group.links ?? []).map((link) => (
-                <SmartLink key={link.label} href={link.href} className="py-1.5 text-sm hover:text-white">
+                <SmartLink key={link.label} href={link.href} className="py-1.5 text-[13px] hover:text-white">
                   {link.label}
                 </SmartLink>
               ))}
@@ -42,7 +42,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-ink-line pt-6 text-[13px]">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-ink-line pt-6 text-xs">
           <span>
             © {currentYear} {site.name}
           </span>

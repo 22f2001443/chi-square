@@ -44,7 +44,7 @@ function FilterBar({ filter, setFilter }) {
               type="button"
               aria-pressed={active}
               onClick={() => setFilter(o.type)}
-              className={`inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-full border px-4 text-sm font-semibold ${
+              className={`inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-full border px-4 text-[13px] font-semibold ${
                 active ? "border-ink bg-ink text-white" : "border-field bg-paper text-ink hover:border-ink"
               }`}
             >
@@ -71,7 +71,7 @@ function TimelineEvent({ event }) {
   return (
     <div className={`${ROW} items-start gap-y-2`}>
       <div className="tl-date col-start-2 row-start-1 flex items-baseline gap-2 md:col-start-1 md:flex-col md:items-end md:gap-0.5 md:pt-5 md:text-right">
-        <span className="font-mono text-[30px] leading-none font-medium tracking-[-0.02em]">
+        <span className="font-mono text-[27px] leading-none font-medium tracking-[-0.02em]">
           {event.day ?? "—"}
         </span>
         <span className="font-mono text-xs uppercase tracking-[0.08em] text-muted">
@@ -92,16 +92,16 @@ function TimelineEvent({ event }) {
           {kind.label}
           {event.series && <> · {event.series}</>}
         </p>
-        <h3 className="text-[21px] leading-snug font-semibold tracking-[-0.01em]">{event.name}</h3>
-        {event.seriesLabel && <p className="text-sm text-muted">{event.seriesLabel}</p>}
-        {event.topic && <p className="text-[15px] leading-relaxed text-body">{event.topic}</p>}
+        <h3 className="text-[19px] leading-snug font-semibold tracking-[-0.01em]">{event.name}</h3>
+        {event.seriesLabel && <p className="text-[13px] text-muted">{event.seriesLabel}</p>}
+        {event.topic && <p className="text-sm leading-relaxed text-body">{event.topic}</p>}
         {event.guestSpeaker && (
-          <p className="text-[15px] leading-relaxed text-body">
+          <p className="text-sm leading-relaxed text-body">
             <strong className="font-semibold">Speaker:</strong> {event.guestSpeaker}
           </p>
         )}
         {event.hosts.length > 0 && (
-          <p className="text-[15px] leading-relaxed text-body">
+          <p className="text-sm leading-relaxed text-body">
             <strong className="font-semibold">Hosted by</strong> {event.hosts.join(", ")}
           </p>
         )}
@@ -116,7 +116,7 @@ function TimelineEvent({ event }) {
           </div>
         )}
         {event.collaborator && (
-          <p className="mt-1 flex flex-wrap items-center justify-end gap-2.5 border-t border-line-soft pt-3.5 text-[13px] text-muted">
+          <p className="mt-1 flex flex-wrap items-center justify-end gap-2.5 border-t border-line-soft pt-3.5 text-xs text-muted">
             In collaboration with
             {event.collaborator.logo && (
               <img
@@ -146,29 +146,29 @@ export default function Events() {
       <div className="tl-progress" aria-hidden="true" />
 
       <section aria-labelledby="page-title" className="bg-ink text-on-ink">
-        <div className="mx-auto flex max-w-300 flex-col gap-6 px-6 pt-24 pb-18">
+        <div className="mx-auto flex max-w-300 flex-col gap-6 px-6 pt-16 pb-12">
           <Eyebrow tone="onInk">Our journey{range && ` · ${range}`}</Eyebrow>
           <h1
             id="page-title"
-            className="max-w-[14em] text-[clamp(44px,6vw,80px)] leading-[1.02] font-semibold tracking-[-0.03em]"
+            className="max-w-[14em] text-[clamp(40px,5.4vw,72px)] leading-[1.02] font-semibold tracking-[-0.03em]"
           >
             {page.title ?? "Our Journey"}
           </h1>
-          {page.lede && <p className="max-w-[40em] text-[19px] leading-relaxed text-on-ink-soft">{page.lede}</p>}
-          <dl className="mt-4 flex flex-wrap gap-x-14 gap-y-6">
+          {page.lede && <p className="max-w-[40em] text-[17px] leading-relaxed text-on-ink-soft">{page.lede}</p>}
+          <dl className="mt-4 flex flex-wrap gap-x-10 gap-y-6">
             {[
               ["Events", events.length],
               ["Series", seriesCount],
               ["Academic terms", termCount],
             ].map(([label, value]) => (
               <div key={label} className="flex flex-col-reverse gap-0.5">
-                <dt className="text-sm text-on-ink-muted">{label}</dt>
-                <dd className="font-mono text-[40px] font-medium">{value}</dd>
+                <dt className="text-[13px] text-on-ink-muted">{label}</dt>
+                <dd className="font-mono text-4xl font-medium">{value}</dd>
               </div>
             ))}
           </dl>
           {page.scrollHint && (
-            <p className="tl-hint mt-6 inline-flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.08em] text-on-ink-muted">
+            <p className="tl-hint mt-6 inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.08em] text-on-ink-muted">
               <Icon name="arrowDown" size={18} />
               {page.scrollHint}
             </p>
@@ -179,7 +179,7 @@ export default function Events() {
       <FilterBar filter={filter} setFilter={setFilter} />
 
       <section aria-label="Timeline of events" className="bg-paper">
-        <div className="tl-wrap relative mx-auto max-w-240 px-6 pt-12 pb-30">
+        <div className="tl-wrap relative mx-auto max-w-240 px-6 pt-10 pb-20">
           <div
             aria-hidden="true"
             className="tl-line absolute top-0 bottom-0 left-[35px] w-0.5 bg-line md:left-[179px]"
@@ -188,7 +188,7 @@ export default function Events() {
           </div>
 
           {page.upNext && (
-            <div className={`${ROW} relative items-center pb-10`}>
+            <div className={`${ROW} relative items-center pb-8`}>
               <span className="hidden md:block" />
               <span
                 aria-hidden="true"
@@ -196,7 +196,7 @@ export default function Events() {
               />
               <SmartLink
                 href="/events/upcomings"
-                className="col-start-2 inline-flex min-h-11 items-center gap-2.5 justify-self-start font-mono text-[13px] font-medium uppercase tracking-[0.06em] text-accent hover:text-accent-strong md:col-start-3"
+                className="col-start-2 inline-flex min-h-11 items-center gap-2.5 justify-self-start font-mono text-xs font-medium uppercase tracking-[0.06em] text-accent hover:text-accent-strong md:col-start-3"
               >
                 {page.upNext}
                 <Icon name="arrowRight" />
@@ -209,16 +209,16 @@ export default function Events() {
           )}
 
           {terms.map((group) => (
-            <section key={group.term} aria-label={group.term} className="relative flex flex-col gap-7 pb-14">
+            <section key={group.term} aria-label={group.term} className="relative flex flex-col gap-7 pb-10">
               <div className={`${ROW} sticky top-17 z-5 items-center bg-paper py-3.5`}>
                 <span className="hidden md:block" />
                 <span
                   aria-hidden="true"
                   className="col-start-1 size-3.5 justify-self-center rounded-full border-4 border-ink bg-paper md:col-start-2"
                 />
-                <h2 className="col-start-2 flex flex-wrap items-baseline gap-x-3.5 gap-y-1 text-[26px] leading-tight font-semibold tracking-[-0.015em] md:col-start-3">
+                <h2 className="col-start-2 flex flex-wrap items-baseline gap-x-3.5 gap-y-1 text-[23px] leading-tight font-semibold tracking-[-0.015em] md:col-start-3">
                   {group.term}
-                  <span className="font-mono text-[13px] font-medium uppercase tracking-[0.06em] text-muted">
+                  <span className="font-mono text-xs font-medium uppercase tracking-[0.06em] text-muted">
                     {group.items.length} {group.items.length === 1 ? "event" : "events"}
                   </span>
                 </h2>
@@ -234,12 +234,12 @@ export default function Events() {
               <span className="hidden md:block" />
               <span
                 aria-hidden="true"
-                className="col-start-1 flex size-10 items-center justify-center justify-self-center rounded-full bg-ink font-mono text-[15px] text-on-ink shadow-[0_0_0_6px_#fff] md:col-start-2"
+                className="col-start-1 flex size-10 items-center justify-center justify-self-center rounded-full bg-ink font-mono text-sm text-on-ink shadow-[0_0_0_6px_#fff] md:col-start-2"
               >
                 χ²
               </span>
               <div className="col-start-2 flex flex-col gap-2 pt-1.5 md:col-start-3">
-                <h2 className="text-[26px] leading-tight font-semibold tracking-[-0.015em]">
+                <h2 className="text-[23px] leading-tight font-semibold tracking-[-0.015em]">
                   {page.beginning.title}
                 </h2>
                 {page.beginning.text && (

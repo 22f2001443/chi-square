@@ -18,7 +18,7 @@ export default function Navbar() {
         <Link to="/" onClick={close} className="flex min-h-11 items-center gap-3 text-on-ink">
           <img src={asset(site.logo)} alt="" className="size-10 rounded-full bg-paper" />
           <span className="flex flex-col leading-tight">
-            <span className="text-[17px] font-semibold">{site.shortName ?? site.name}</span>
+            <span className="text-[15px] font-semibold">{site.shortName ?? site.name}</span>
             {site.tagline && (
               <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-on-ink-muted">
                 {site.tagline}
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         <ul
           id="main-menu"
-          className={`${open ? "flex" : "hidden"} w-full flex-col gap-0.5 pb-2 text-sm font-medium md:flex md:w-auto md:flex-row md:flex-wrap md:pb-0`}
+          className={`${open ? "flex" : "hidden"} w-full flex-col gap-0.5 pb-2 text-[13px] font-medium md:flex md:w-auto md:flex-row md:flex-wrap md:pb-0`}
         >
           {navigation.items.filter(Boolean).map((item) => (
             <li key={item.to}>

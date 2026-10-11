@@ -26,7 +26,7 @@ function MemberCard({ member }) {
       />
       <div className="flex items-start justify-between gap-3 px-5 pt-4.5 pb-5">
         <div className="flex min-w-0 flex-col gap-1.5">
-          <h3 className="text-[19px] leading-snug font-semibold">{member.name}</h3>
+          <h3 className="text-[17px] leading-snug font-semibold">{member.name}</h3>
           {member.role && (
             <p className="font-mono text-xs leading-normal uppercase tracking-[0.06em] text-muted">
               {member.role}
@@ -53,12 +53,12 @@ function MemberSection({ section }) {
   if (!members.length) return null;
   return (
     <section aria-label={section.title} className="bg-paper">
-      <Container className="flex flex-col gap-7 border-b border-line py-14">
+      <Container className="flex flex-col gap-7 border-b border-line py-10">
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
           {section.title && (
-            <h2 className="text-[30px] leading-tight font-semibold tracking-[-0.015em]">{section.title}</h2>
+            <h2 className="text-[27px] leading-tight font-semibold tracking-[-0.015em]">{section.title}</h2>
           )}
-          {section.blurb && <p className="max-w-[32em] text-[15px] text-muted">{section.blurb}</p>}
+          {section.blurb && <p className="max-w-[32em] text-sm text-muted">{section.blurb}</p>}
         </div>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6">
           {members.map((member, i) => (
@@ -78,9 +78,9 @@ function AlumniTable({ section }) {
   const cell = "border-b border-line-soft px-4 py-3.5";
   return (
     <div className="flex min-w-0 flex-[1_1_460px] flex-col gap-3">
-      {section.title && <h3 className="text-xl font-semibold">{section.title}</h3>}
+      {section.title && <h3 className="text-lg font-semibold">{section.title}</h3>}
       <div className="overflow-x-auto rounded-xl border border-line bg-paper">
-        <table className="w-full border-collapse text-[15px]">
+        <table className="w-full border-collapse text-sm">
           <thead>
             <tr>
               <th scope="col" className={head}>Name</th>
@@ -93,7 +93,7 @@ function AlumniTable({ section }) {
               <tr key={m.name ?? i}>
                 <th scope="row" className={`${cell} text-left font-semibold`}>{m.name}</th>
                 <td className={`${cell} text-body`}>{m.role ?? "—"}</td>
-                <td className={`${cell} font-mono text-[13px] whitespace-nowrap text-muted`}>{m.tenure ?? "—"}</td>
+                <td className={`${cell} font-mono text-xs whitespace-nowrap text-muted`}>{m.tenure ?? "—"}</td>
               </tr>
             ))}
           </tbody>
@@ -117,10 +117,10 @@ export default function People() {
 
       {hasAlumni && (
         <section aria-labelledby="alumni-title" className="bg-surface">
-          <Container className="flex flex-col gap-8 py-20">
+          <Container className="flex flex-col gap-8 py-14">
             <div className="flex flex-col gap-2.5">
               {alumni.eyebrow && <Eyebrow>{alumni.eyebrow}</Eyebrow>}
-              <h2 id="alumni-title" className="text-[34px] leading-tight font-semibold tracking-[-0.02em]">
+              <h2 id="alumni-title" className="text-[31px] leading-tight font-semibold tracking-[-0.02em]">
                 {alumni.title ?? "Alumni"}
               </h2>
             </div>
@@ -134,9 +134,9 @@ export default function People() {
 
       {join && (
         <section aria-labelledby="join-title" className="bg-accent text-white">
-          <Container className="flex flex-wrap items-center justify-between gap-6 py-16">
+          <Container className="flex flex-wrap items-center justify-between gap-6 py-12">
             <div className="flex flex-[1_1_420px] flex-col gap-2.5">
-              <h2 id="join-title" className="text-[30px] leading-tight font-semibold tracking-[-0.015em]">
+              <h2 id="join-title" className="text-[27px] leading-tight font-semibold tracking-[-0.015em]">
                 {join.title}
               </h2>
               {join.text && <p className="max-w-[34em] leading-relaxed text-accent-tint">{join.text}</p>}

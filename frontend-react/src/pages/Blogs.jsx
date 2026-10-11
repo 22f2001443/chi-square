@@ -13,7 +13,7 @@ export default function Blogs() {
     <Layout>
       <PageHeader eyebrow={blogs.eyebrow} title={blogs.title ?? "Blogs"} lede={blogs.intro} />
       <section aria-label="Blog posts" className="bg-paper">
-        <Container className="flex flex-col gap-8 pt-6 pb-24">
+        <Container className="flex flex-col gap-8 pt-6 pb-16">
           {blogs.allPosts && (
             <ArrowLink href={blogs.allPosts.href} icon="arrowUpRight" className="self-start">
               {blogs.allPosts.label}

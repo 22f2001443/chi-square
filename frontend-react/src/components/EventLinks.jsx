@@ -7,7 +7,7 @@ export default function EventLinks({ links }) {
     <SmartLink
       key={key}
       href={links[key]}
-      className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-accent hover:text-accent-strong"
+      className="inline-flex min-h-11 items-center gap-2 text-[13px] font-semibold text-accent hover:text-accent-strong"
     >
       <Icon name={icon} size={18} />
       {label}
