@@ -23,11 +23,15 @@ stats:
   - value: "400+"
     label: Active participants
 
-# The most recent events from events.yml.
+# The most recent events from events.yml. `types` limits which kinds are
+# shown (each matches a `type` in events.yml); leave it out to show all.
 latest:
   eyebrow: Our journey
   title: Latest from Chi-Square
   count: 3
+  types:
+    - Academic Talks
+    - Contests
 
 # One card per kind of event; the count is worked out from events.yml.
 # `type` matches a `type` in events.yml.

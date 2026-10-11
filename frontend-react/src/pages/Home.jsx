@@ -65,7 +65,9 @@ function EventCard({ event }) {
 
 export default function Home() {
   const { hero = {}, stats = [], latest = {}, formats = {}, partners = {}, join } = home;
-  const latestEvents = events.slice(0, latest.count ?? 3);
+  const latestEvents = events
+    .filter((e) => !latest.types?.length || latest.types.includes(e.type))
+    .slice(0, latest.count ?? 3);
   const kindByType = Object.fromEntries(kinds.map((k) => [k.type, k]));
 
   return (
