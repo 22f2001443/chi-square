@@ -14,10 +14,11 @@ import {
   kinds,
   withAlpha,
 } from "../lib/events";
+import { pageOn } from "../lib/features";
 
-// Shared timeline grid: a date column, the line, then the cards. On phones
-// the line moves to the left edge and the date sits above each card.
-const ROW = "grid grid-cols-[24px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_40px_minmax(0,1fr)]";
+// Shared timeline grid: the line, then the cards. From md up a date column
+// comes first; on phones the date moves into the card.
+const ROW = "grid grid-cols-[24px_minmax(0,1fr)] gap-x-3 md:grid-cols-[84px_32px_minmax(0,1fr)]";
 
 function FilterBar({ filter, setFilter }) {
   const options = [
@@ -34,7 +35,7 @@ function FilterBar({ filter, setFilter }) {
       <div
         role="group"
         aria-label="Filter events by format"
-        className="mx-auto flex max-w-240 gap-2 overflow-x-auto px-6 py-3"
+        className="mx-auto flex max-w-240 gap-2 overflow-x-auto px-6 py-2"
       >
         {options.map((o) => {
           const active = o.type === filter;
@@ -44,19 +45,19 @@ function FilterBar({ filter, setFilter }) {
               type="button"
               aria-pressed={active}
               onClick={() => setFilter(o.type)}
-              className={`inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-full border px-4 text-[13px] font-semibold ${
+              className={`inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-2 rounded-full border px-3.5 text-xs font-semibold ${
                 active ? "border-ink bg-ink text-white" : "border-field bg-paper text-ink hover:border-ink"
               }`}
             >
               {o.color && (
                 <span
                   aria-hidden="true"
-                  className="size-2.5 rounded-full"
+                  className="size-2 rounded-full"
                   style={{ background: o.color, boxShadow: active ? "0 0 0 2px #fff" : "none" }}
                 />
               )}
               {o.label}
-              <span className="font-mono text-xs font-medium opacity-75">{o.count}</span>
+              <span className="font-mono font-medium opacity-75">{o.count}</span>
             </button>
           );
         })}
@@ -65,69 +66,92 @@ function FilterBar({ filter, setFilter }) {
   );
 }
 
+// A small card: kind, series, name and any guest speaker, judge or co-host.
+// The rest unfolds on hover, keyboard focus or a tap (see .ev in index.css).
 function TimelineEvent({ event }) {
+  const [open, setOpen] = useState(false);
   const { kind } = event;
   const showFooter = event.attendance || hasEventLinks(event.links);
+  const partner = event.collaborator;
   return (
-    <div className={`${ROW} items-start gap-y-2`}>
-      <div className="tl-date col-start-2 row-start-1 flex items-baseline gap-2 md:col-start-1 md:flex-col md:items-end md:gap-0.5 md:pt-5 md:text-right">
-        <span className="font-mono text-[27px] leading-none font-medium tracking-[-0.02em]">
+    <div className={`${ROW} items-start`}>
+      <div className="tl-date hidden flex-col items-end gap-0.5 pt-3 text-right md:flex">
+        <span className="font-mono text-lg leading-none font-medium tracking-[-0.02em]">
           {event.day ?? "—"}
         </span>
-        <span className="font-mono text-xs uppercase tracking-[0.08em] text-muted">
-          {event.monthYear ?? event.duration ?? event.term}
+        <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
+          {event.monthYear ?? event.duration ?? event.termLabel}
         </span>
       </div>
       <div
         aria-hidden="true"
-        className="tl-node col-start-1 row-span-2 row-start-1 mt-1.5 size-4 justify-self-center rounded-full md:col-start-2 md:row-span-1 md:mt-6"
+        className="tl-node mt-3.5 size-3 justify-self-center rounded-full"
         style={{
           background: kind.color,
-          boxShadow: `0 0 0 4px #fff, 0 0 0 7px ${withAlpha(kind.color, 0.25)}`,
+          boxShadow: `0 0 0 3px #fff, 0 0 0 6px ${withAlpha(kind.color, 0.25)}`,
         }}
       />
-      <article className="tl-card col-start-2 row-start-2 flex flex-col gap-2.5 rounded-[14px] border border-line bg-paper px-6 py-5.5 md:col-start-3 md:row-start-1">
-        <p className="flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-[0.06em] text-muted">
-          <span className="size-2 rounded-full" style={{ background: kind.color }} />
-          {kind.label}
-          {event.series && <> · {event.series}</>}
-        </p>
-        <h3 className="text-[19px] leading-snug font-semibold tracking-[-0.01em]">{event.name}</h3>
-        {event.seriesLabel && <p className="text-[13px] text-muted">{event.seriesLabel}</p>}
-        {event.topic && <p className="text-sm leading-relaxed text-body">{event.topic}</p>}
-        {event.guestSpeaker && (
-          <p className="text-sm leading-relaxed text-body">
-            <strong className="font-semibold">Speaker:</strong> {event.guestSpeaker}
-          </p>
-        )}
-        {event.hosts.length > 0 && (
-          <p className="text-sm leading-relaxed text-body">
-            <strong className="font-semibold">Hosted by</strong> {event.hosts.join(", ")}
-          </p>
-        )}
-        {showFooter && (
-          <div className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-line-soft pt-1.5">
-            {event.attendance && (
-              <span className="rounded-full bg-surface px-2.5 py-1 font-mono text-xs text-body">
-                {event.attendance}
-              </span>
+      <article data-open={open || undefined} className="tl-card ev relative rounded-xl border border-line bg-paper">
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+          className="flex w-full cursor-pointer items-start gap-3 px-4 py-3 text-left"
+        >
+          <span className="flex min-w-0 flex-1 flex-col gap-1">
+            <span className="flex flex-wrap gap-x-1.5 font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
+              <span className="md:hidden">{event.date ? event.dateLabel : event.duration ?? event.termLabel} ·</span>
+              {kind.label}
+              {event.series && <span className="hidden md:inline">· {event.series}</span>}
+            </span>
+            <span className="text-[15px] leading-snug font-semibold tracking-[-0.01em]">{event.name}</span>
+            {[
+              ["Speaker", event.guestSpeaker],
+              ["Judge", event.judge],
+              ["Co-host", event.coHost],
+            ].map(
+              ([label, who]) =>
+                who && (
+                  <span key={label} className="text-[13px] leading-snug text-body">
+                    <strong className="font-semibold">{label}:</strong> {who}
+                  </span>
+                ),
             )}
-            <EventLinks links={event.links} />
+          </span>
+          <Icon name="chevronDown" size={18} className="ev-chevron mt-2.5 shrink-0 text-muted" />
+        </button>
+        <div className="ev-more">
+          <div>
+            <div className="ev-panel flex flex-col gap-1.5 border-t border-line-soft px-4 pt-3 pb-3.5">
+              {event.seriesLabel && <p className="text-[13px] text-muted">{event.seriesLabel}</p>}
+              {event.topic && <p className="text-sm leading-relaxed text-body">{event.topic}</p>}
+              {event.hosts.length > 0 && (
+                <p className="text-sm leading-relaxed text-body">
+                  <strong className="font-semibold">Hosted by</strong> {event.hosts.join(", ")}
+                </p>
+              )}
+              {showFooter && (
+                <div className="flex flex-wrap items-center gap-x-5">
+                  {event.attendance && (
+                    <span className="rounded-full bg-surface px-2.5 py-1 font-mono text-xs text-body">
+                      {event.attendance}
+                    </span>
+                  )}
+                  <EventLinks links={event.links} />
+                </div>
+              )}
+              {partner && (
+                <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
+                  In collaboration with
+                  {partner.logo && (
+                    <img src={asset(partner.logo)} alt="" className="block size-6 rounded-full bg-ink" />
+                  )}
+                  <strong className="font-semibold text-ink">{partner.name}</strong>
+                </p>
+              )}
+            </div>
           </div>
-        )}
-        {event.collaborator && (
-          <p className="mt-1 flex flex-wrap items-center justify-end gap-2.5 border-t border-line-soft pt-3.5 text-xs text-muted">
-            In collaboration with
-            {event.collaborator.logo && (
-              <img
-                src={asset(event.collaborator.logo)}
-                alt=""
-                className="block size-8 rounded-full bg-ink"
-              />
-            )}
-            <strong className="font-semibold text-ink">{event.collaborator.name}</strong>
-          </p>
-        )}
+        </div>
       </article>
     </div>
   );
@@ -146,57 +170,51 @@ export default function Events() {
       <div className="tl-progress" aria-hidden="true" />
 
       <section aria-labelledby="page-title" className="bg-ink text-on-ink">
-        <div className="mx-auto flex max-w-300 flex-col gap-6 px-6 pt-16 pb-12">
+        <div className="mx-auto flex max-w-300 flex-col gap-3 px-6 pt-10 pb-8">
           <Eyebrow tone="onInk">Our journey{range && ` · ${range}`}</Eyebrow>
           <h1
             id="page-title"
-            className="max-w-[14em] text-[clamp(40px,5.4vw,72px)] leading-[1.02] font-semibold tracking-[-0.03em]"
+            className="max-w-[22em] text-[clamp(28px,3.4vw,40px)] leading-[1.1] font-semibold tracking-[-0.02em]"
           >
             {page.title ?? "Our Journey"}
           </h1>
-          {page.lede && <p className="max-w-[40em] text-[17px] leading-relaxed text-on-ink-soft">{page.lede}</p>}
-          <dl className="mt-4 flex flex-wrap gap-x-10 gap-y-6">
+          {page.lede && <p className="max-w-[44em] text-[15px] leading-relaxed text-on-ink-soft">{page.lede}</p>}
+          <dl className="mt-2 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[13px] text-on-ink-muted">
             {[
-              ["Events", events.length],
-              ["Series", seriesCount],
-              ["Academic terms", termCount],
+              ["events", events.length],
+              ["series", seriesCount],
+              ["academic terms", termCount],
             ].map(([label, value]) => (
-              <div key={label} className="flex flex-col-reverse gap-0.5">
-                <dt className="text-[13px] text-on-ink-muted">{label}</dt>
-                <dd className="font-mono text-4xl font-medium">{value}</dd>
+              <div key={label} className="flex flex-row-reverse items-baseline gap-1.5">
+                <dt>{label}</dt>
+                <dd className="text-lg font-medium text-on-ink">{value}</dd>
               </div>
             ))}
           </dl>
-          {page.scrollHint && (
-            <p className="tl-hint mt-6 inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.08em] text-on-ink-muted">
-              <Icon name="arrowDown" size={18} />
-              {page.scrollHint}
-            </p>
-          )}
         </div>
       </section>
 
       <FilterBar filter={filter} setFilter={setFilter} />
 
       <section aria-label="Timeline of events" className="bg-paper">
-        <div className="tl-wrap relative mx-auto max-w-240 px-6 pt-10 pb-20">
+        <div className="tl-wrap relative mx-auto max-w-240 px-6 pt-6 pb-16">
           <div
             aria-hidden="true"
-            className="tl-line absolute top-0 bottom-0 left-[35px] w-0.5 bg-line md:left-[179px]"
+            className="tl-line absolute top-0 bottom-0 left-[35px] w-0.5 bg-line md:left-[135px]"
           >
             <div className="tl-fill absolute inset-0 bg-ink" />
           </div>
 
-          {page.upNext && (
-            <div className={`${ROW} relative items-center pb-8`}>
+          {page.upNext && pageOn("/events/upcomings") && (
+            <div className={`${ROW} relative items-center pb-3`}>
               <span className="hidden md:block" />
               <span
                 aria-hidden="true"
-                className="col-start-1 size-5 justify-self-center rounded-full bg-accent shadow-[0_0_0_6px_#fff] md:col-start-2"
+                className="size-4 justify-self-center rounded-full bg-accent shadow-[0_0_0_5px_#fff]"
               />
               <SmartLink
                 href="/events/upcomings"
-                className="col-start-2 inline-flex min-h-11 items-center gap-2.5 justify-self-start font-mono text-xs font-medium uppercase tracking-[0.06em] text-accent hover:text-accent-strong md:col-start-3"
+                className="inline-flex min-h-11 items-center gap-2 justify-self-start font-mono text-xs font-medium uppercase tracking-[0.06em] text-accent hover:text-accent-strong"
               >
                 {page.upNext}
                 <Icon name="arrowRight" />
@@ -209,16 +227,16 @@ export default function Events() {
           )}
 
           {terms.map((group) => (
-            <section key={group.term} aria-label={group.term} className="relative flex flex-col gap-7 pb-10">
-              <div className={`${ROW} sticky top-17 z-5 items-center bg-paper py-3.5`}>
+            <section key={group.term} aria-label={group.label} className="relative flex flex-col gap-2.5 pb-6">
+              <div className={`${ROW} sticky top-13 z-5 items-center bg-paper py-2`}>
                 <span className="hidden md:block" />
                 <span
                   aria-hidden="true"
-                  className="col-start-1 size-3.5 justify-self-center rounded-full border-4 border-ink bg-paper md:col-start-2"
+                  className="size-3 justify-self-center rounded-full border-[3px] border-ink bg-paper"
                 />
-                <h2 className="col-start-2 flex flex-wrap items-baseline gap-x-3.5 gap-y-1 text-[23px] leading-tight font-semibold tracking-[-0.015em] md:col-start-3">
-                  {group.term}
-                  <span className="font-mono text-xs font-medium uppercase tracking-[0.06em] text-muted">
+                <h2 className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[17px] leading-tight font-semibold tracking-[-0.01em]">
+                  {group.label}
+                  <span className="font-mono text-[11px] font-medium uppercase tracking-[0.06em] text-muted">
                     {group.items.length} {group.items.length === 1 ? "event" : "events"}
                   </span>
                 </h2>
@@ -230,20 +248,20 @@ export default function Events() {
           ))}
 
           {page.beginning && filter === "all" && (
-            <div className={`${ROW} relative items-start pt-2`}>
+            <div className={`${ROW} relative items-start pt-1`}>
               <span className="hidden md:block" />
               <span
                 aria-hidden="true"
-                className="col-start-1 flex size-10 items-center justify-center justify-self-center rounded-full bg-ink font-mono text-sm text-on-ink shadow-[0_0_0_6px_#fff] md:col-start-2"
+                className="flex size-8 items-center justify-center justify-self-center rounded-full bg-ink font-mono text-xs text-on-ink shadow-[0_0_0_5px_#fff]"
               >
                 χ²
               </span>
-              <div className="col-start-2 flex flex-col gap-2 pt-1.5 md:col-start-3">
-                <h2 className="text-[23px] leading-tight font-semibold tracking-[-0.015em]">
+              <div className="flex flex-col gap-1 pt-1">
+                <h2 className="text-[17px] leading-tight font-semibold tracking-[-0.01em]">
                   {page.beginning.title}
                 </h2>
                 {page.beginning.text && (
-                  <p className="max-w-[34em] leading-relaxed text-muted">{page.beginning.text}</p>
+                  <p className="max-w-[40em] text-sm leading-relaxed text-muted">{page.beginning.text}</p>
                 )}
               </div>
             </div>

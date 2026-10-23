@@ -17,10 +17,9 @@ page:
     A student-run team from the IIT Madras BS Degree, working alongside
     Nilgiri House and RaSoR Society.
 
-# Current sections show photo cards; `blurb` is optional.
+# Current sections show photo cards.
 coreTeam:
   title: Core team
-  blurb: Students who plan and run every session.
   members:
     # - name: Samyabrata Roy
     #   role: Founder & Club Administrator
@@ -37,7 +36,6 @@ coreTeam:
 
 collaborators:
   title: Collaborators
-  blurb: Partners from Nilgiri House and RaSoR Society.
   members:
     - name: Somshankar Chakraborty
       role: Secretary, Nilgiri House
@@ -48,7 +46,6 @@ collaborators:
 
 volunteers:
   title: Volunteers
-  blurb: People who help out at events.
   members:
     - name: John Doe
       role: Volunteer
@@ -63,35 +60,35 @@ alumni:
 pastMembers:
   title: Past core members
   members:
-    - name: Pratibha Srivastava
-      role: Content Team
+    - name: Writwik Das
+      role: PR and Media Lead
+      team: PR
+      house: Nallamala House
+    - name: Sinu Maria Jeeson
+      role: Core member [Content Team]
+      team: Content
+    - name: Shrabana Paul
+      role: Core member [Content Team]
       team: Content
       house: Nilgiri House
-      tenure: Jan, 2024 – May, 2024
     - name: Jay Naria
       role: PR Team
       team: PR
       house: Nilgiri House
       tenure: Jan, 2024– Sept, 2024
-    - name: Shrabana Paul
-      role: Core member [Content Team]
+    - name: Pratibha Srivastava
+      role: Content Team
       team: Content
       house: Nilgiri House
-    - name: Sinu Maria Jeeson
-      role: Core member [Content Team]
-      team: Content
-    - name: Writwik Das
-      role: PR and Media Lead
-      team: PR
-      house: Nallamala House
+      tenure: Jan, 2024 – May, 2024
 
 pastCollaborators:
   title: Past collaborators
   members:
     - name: Somshankar Chakraborty
-      role: Secretary, Nilgiri House
+      role: Ex-Secretary, Nilgiri House
     - name: Madhur Thareja
-      role: Deputy Secretary, RaSoR
+      role: Ex-Deputy Secretary, RaSoR
 
 join:
   title: Want to help run Chi-Square?

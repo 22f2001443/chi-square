@@ -6,14 +6,15 @@
 # site.yml to show their logo. Attendance is `participants` (a count) or
 # `registered` / `attended`. Links are optional and only shown when present
 # (youtube, material, linkedin, instagram). `poster` (relative to public/) is
-# shown on the Home page's latest-event cards.
+# shown on the Home page's latest-event cards. `endDate` marks the last day
+# of an event that runs over several days of one month. `guestSpeaker`,
+# `judge` and `coHost` show on the event's card without opening it.
 
 page:
   title: Every session we've run, one scroll at a time
   lede: >-
     Every talk, revision session, workshop and contest we've run since our
     inauguration in November 2023, newest first.
-  scrollHint: Scroll to travel back in time
   upNext: "Up next: see upcoming events"
   beginning:
     title: Where it all began
@@ -333,8 +334,53 @@ events:
     guestSpeaker: Prof. Manisha Padala, CSE, IIT Gandhinagar
     series: GE02
     episode: 1
+    hosts:
+      - Samyabrata Roy
+      - Sukanya S
     collaboration: Nilgiri House
     poster: Posters/GE02/01.png
+  - name: "Pre-Paradox Guest Talk: Questionnaire and Survey Design: Probably Paradoxical Context"
+    type: Academic Talks
+    date: June 2, 2026
+    time: 6:30:00 PM
+    mode: Online
+    term: May 2026
+    series: PP101
+    topic: 'Questionnaire and Survey Design: Probably Paradoxical Context'
+    guestSpeaker: Prof. (Dr.) Shyamolina Ghosh, Assistant Professor, Agricultural and Ecological Research Unit, Indian Statistical Institute, Kolkata
+    collaboration: Paradox 2026
+    hosts:
+      - Samyabrata Roy
+      - Sukanya S
+      - Ankit Kumar
+      - premanand Jena
+  - name: Probably Paradoxical
+    type: Contests
+    date: June 10, 2026
+    endDate: June 11, 2026
+    mode: Offline
+    term: May 2026
+    series: PP102
+    judge: Prof. Rahul Marathe, DoMS, IIT Madras
+    collaboration: Paradox 2026
+    hosts:
+      - Samyabrata Roy
+      - Sukanya S
+      - Ankit Kumar
+      - premanand Jena
+  - name: Interactive Session on Enterprise Survey
+    type: Academic Talks
+    date: October 13, 2026
+    time: 3:00:00 PM
+    mode: Online
+    term: September 2026
+    registered: 200+
+    attended: 65+
+    coHost: Ministry of Statistics and Programme Implementation (MoSPI)
+    collaboration: National Statistics Office (NSO), MoSPI
+    hosts:
+      - Samyabrata Roy
+      - premanand Jena
   - name: Weekly Challenges
     type: Contests
     mode: Online

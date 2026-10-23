@@ -10,7 +10,8 @@ export function pageOn(path) {
   return features?.pages?.[page] !== false;
 }
 
-// Whether the home page section `name` (latest, formats, partners, join) is on.
-export function homeSectionOn(name) {
-  return features?.home?.[name] !== false;
+// Whether section `name` of a page's group in features.yml (home, people)
+// is on.
+export function sectionOn(page, name) {
+  return features?.[page]?.[name] !== false;
 }

@@ -8,7 +8,7 @@ import home from "../data/home.yml";
 import site from "../data/site.yml";
 import { asset } from "../lib/asset";
 import { countByType, events, kinds } from "../lib/events";
-import { homeSectionOn } from "../lib/features";
+import { sectionOn } from "../lib/features";
 
 // An event's poster, or its series code on ink when there is none (or it
 // fails to load).
@@ -37,9 +37,13 @@ function PosterOrCode({ event }) {
 function EventCard({ event }) {
   const who = event.guestSpeaker
     ? `Speaker: ${event.guestSpeaker}`
-    : event.hosts.length
-      ? `Hosted by ${event.hosts.join(", ")}`
-      : "";
+    : event.judge
+      ? `Judge: ${event.judge}`
+      : event.coHost
+        ? `Co-host: ${event.coHost}`
+        : event.hosts.length
+          ? `Hosted by ${event.hosts.join(", ")}`
+          : "";
   const detail = who;
   return (
     <article className="flex min-w-0 flex-[1_1_320px] flex-col overflow-hidden rounded-xl border border-line bg-paper">
@@ -113,7 +117,7 @@ export default function Home() {
         )}
       </section>
 
-      {homeSectionOn("latest") && latestEvents.length > 0 && (
+      {sectionOn("home", "latest") && latestEvents.length > 0 && (
         <section aria-labelledby="latest-title" className="bg-paper">
           <Container className="flex flex-col gap-8 py-16">
             <div className="flex flex-wrap items-end justify-between gap-4">
@@ -134,7 +138,7 @@ export default function Home() {
         </section>
       )}
 
-      {homeSectionOn("formats") && formats.items?.length > 0 && (
+      {sectionOn("home", "formats") && formats.items?.length > 0 && (
         <section aria-labelledby="formats-title" className="bg-surface">
           <Container className="flex flex-col gap-8 py-16">
             <div className="flex max-w-160 flex-col gap-2.5">
@@ -168,7 +172,7 @@ export default function Home() {
         </section>
       )}
 
-      {homeSectionOn("partners") && site.collaborators?.length > 0 && (
+      {sectionOn("home", "partners") && site.collaborators?.length > 0 && (
         <section aria-labelledby="partners-title" className="border-t border-line bg-paper">
           <Container className="flex flex-wrap items-center gap-x-12 gap-y-6 py-10">
             <h2
@@ -201,7 +205,7 @@ export default function Home() {
         </section>
       )}
 
-      {homeSectionOn("join") && join && (
+      {sectionOn("home", "join") && join && (
         <section aria-labelledby="join-title" className="bg-accent text-white">
           <Container className="flex flex-wrap items-center justify-between gap-8 py-12">
             <div className="flex flex-[1_1_480px] flex-col gap-3">

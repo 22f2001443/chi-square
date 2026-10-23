@@ -20,6 +20,9 @@ function parseDate(text) {
 
 const shortMonth = (date) => `${SHORT[date.getMonth()]} ${date.getFullYear()}`;
 
+// "January 2026" -> "January Term 2026"; anything else is kept as-is.
+const termName = (term) => String(term ?? "").replace(/^([A-Za-z]+)\s+(\d{4})$/, "$1 Term $2") || term;
+
 // "#2F4BD8" -> "rgba(47, 75, 216, 0.25)"
 export function withAlpha(hex, alpha) {
   const n = parseInt(String(hex).replace("#", ""), 16);
@@ -50,8 +53,16 @@ function attendanceLabel(e) {
   return parts.join(" · ");
 }
 
+// "10", or "10–11" for an event whose `endDate` is later in the same month.
+function dayLabel(date, end) {
+  const pad = (d) => String(d.getDate()).padStart(2, "0");
+  const sameMonth = end && end.getMonth() === date.getMonth() && end.getFullYear() === date.getFullYear();
+  return sameMonth && end > date ? `${pad(date)}–${pad(end)}` : pad(date);
+}
+
 function normalize(e) {
   const date = parseDate(e.date);
+  const day = date ? dayLabel(date, parseDate(e.endDate)) : null;
   const series = seriesData[e.series];
   const partner = (site.collaborators ?? []).find((c) => c.name === e.collaboration);
   return {
@@ -60,9 +71,10 @@ function normalize(e) {
     // Undated events (e.g. contests) sort by the start of their term.
     sortKey: (date ?? parseDate(e.term) ?? new Date(0)).getTime(),
     date,
-    day: date ? String(date.getDate()).padStart(2, "0") : null,
+    day,
     monthYear: date ? shortMonth(date) : null,
-    dateLabel: date ? `${String(date.getDate()).padStart(2, "0")} ${shortMonth(date)}` : e.term,
+    termLabel: termName(e.term),
+    dateLabel: date ? `${day} ${shortMonth(date)}` : termName(e.term),
     seriesLabel: series ? `${series.name} · ${series.topic}` : e.series,
     hosts: (e.hosts ?? []).filter(Boolean),
     attendance: attendanceLabel(e),
@@ -84,7 +96,7 @@ export function groupByTerm(list) {
   for (const e of list) {
     const last = groups[groups.length - 1];
     if (last && last.term === e.term) last.items.push(e);
-    else groups.push({ term: e.term, items: [e] });
+    else groups.push({ term: e.term, label: e.termLabel, items: [e] });
   }
   return groups;
 }

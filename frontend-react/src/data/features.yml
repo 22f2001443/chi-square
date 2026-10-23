@@ -8,12 +8,23 @@ pages:
   /events: true
   /people: true
   /abouts: true
-  /resources/course-materials: true
-  /blogs: true
+  /resources/course-materials: false
+  /resources/books: false
+  /resources/research-papers: false
+  /blogs: false
 
 # Home page sections.
 home:
   latest: true
   formats: true
   partners: true
+  join: true
+
+# People page sections, named as in people.yml.
+people:
+  coreTeam: true
+  collaborators: false
+  volunteers: true
+  pastMembers: true
+  pastCollaborators: true
   join: true
