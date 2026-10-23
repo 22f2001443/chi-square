@@ -1,3 +1,4 @@
+import { pageOn } from "../lib/features";
 import SmartLink from "./SmartLink";
 import Icon from "./Icon";
 
@@ -39,7 +40,8 @@ export function ButtonLink({ href, variant = "primary", className = "", children
 }
 
 // Renders YAML `actions` ({ label, href|to, style: primary|secondary }) with
-// the button variants that suit the background they sit on.
+// the button variants that suit the background they sit on. Buttons to pages
+// that are switched off are left out.
 export function Actions({ actions = [], on = "paper" }) {
   const variants = {
     paper: { primary: "primary", secondary: "secondary" },
@@ -49,7 +51,7 @@ export function Actions({ actions = [], on = "paper" }) {
   }[on];
   return (
     <div className="flex flex-wrap gap-3">
-      {actions.filter(Boolean).map((a) => (
+      {actions.filter((a) => a && pageOn(a.to ?? a.href)).map((a) => (
         <ButtonLink
           key={a.label}
           href={a.to ?? a.href}

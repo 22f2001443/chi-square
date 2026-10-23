@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import site from "../data/site.yml";
 import navigation from "../data/navigation.yml";
 import { asset } from "../lib/asset";
+import { pageOn } from "../lib/features";
 import Icon from "./Icon";
 
 export default function Navbar() {
@@ -42,7 +43,7 @@ export default function Navbar() {
           id="main-menu"
           className={`${open ? "flex" : "hidden"} w-full flex-col gap-0.5 pb-2 text-[13px] font-medium md:flex md:w-auto md:flex-row md:flex-wrap md:pb-0`}
         >
-          {navigation.items.filter(Boolean).map((item) => (
+          {navigation.items.filter((item) => item && pageOn(item.to)).map((item) => (
             <li key={item.to}>
               <NavLink
                 to={item.to}

@@ -17,9 +17,13 @@ logo: logo_t.png
 favicon: logo_t.png
 
 footer:
-  hostedBy: Nilgiri House
   institution: BS Degree, Indian Institute of Technology Madras
   location: Chennai, Tamil Nadu
+  # Shown with its logo under the address; `logo` is optional.
+  programme:
+    name: IIT Madras BS Degree
+    logo: IIT_Madras_Logo.png
+    href: https://study.iitm.ac.in/ds/
   linkGroups:
     - title: Quick links
       links:
@@ -60,16 +64,10 @@ socials:
 # `name` here to show the logo on its card; `logo` is optional.
 collaborators:
   - name: Nilgiri House
-    role: Our host house
     logo: nil.png
     href: https://sites.google.com/ds.study.iitm.ac.in/nilgirihouse
   - name: RaSoR Society
-    role: Collaborator
     href: https://rasoriitm.vercel.app/
-  - name: IIT Madras BS Degree
-    role: Our programme
-    logo: IIT_Madras_Logo.png
-    href: https://study.iitm.ac.in/ds/
 
 maintenance:
   title: This page is being built

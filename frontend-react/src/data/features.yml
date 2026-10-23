@@ -1,0 +1,19 @@
+# Feature flags. Set one to false to switch that part of the site off without
+# deleting it; anything not listed here stays on.
+
+# Pages, by address. A page that's off drops out of the navbar, footer and
+# buttons, and its address shows the "being built" notice instead.
+pages:
+  /events/upcomings: true
+  /events: true
+  /people: true
+  /abouts: true
+  /resources/course-materials: true
+  /blogs: true
+
+# Home page sections.
+home:
+  latest: true
+  formats: true
+  partners: true
+  join: true

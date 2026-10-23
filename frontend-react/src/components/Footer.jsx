@@ -1,10 +1,18 @@
 import site from "../data/site.yml";
+import { asset } from "../lib/asset";
+import { pageOn } from "../lib/features";
 import SmartLink from "./SmartLink";
 
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   const { footer = {}, socials = [] } = site;
+  // Links to pages that are switched off are dropped, and so is a group left
+  // with none.
+  const linkGroups = (footer.linkGroups ?? [])
+    .filter(Boolean)
+    .map((group) => ({ ...group, links: (group.links ?? []).filter((link) => pageOn(link.href)) }))
+    .filter((group) => group.links.length > 0);
 
   return (
     <footer className="bg-ink text-on-ink-link">
@@ -27,13 +35,24 @@ export default function Footer() {
                 </>
               )}
             </p>
+            {footer.programme && (
+              <SmartLink href={footer.programme.href} className="mt-2 flex items-center gap-3 hover:text-white">
+                {footer.programme.logo && (
+                  <img src={asset(footer.programme.logo)} alt="" className="block size-11 shrink-0 rounded-full" />
+                )}
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-sm font-semibold text-on-ink">{footer.programme.name}</span>
+                  {footer.programme.role && <span className="text-xs">{footer.programme.role}</span>}
+                </span>
+              </SmartLink>
+            )}
           </div>
-          {(footer.linkGroups ?? []).filter(Boolean).map((group) => (
+          {linkGroups.map((group) => (
             <div key={group.title} className="flex flex-[0_1_160px] flex-col gap-1">
-              <h2 className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-on-ink-muted">
+              <h2 className="mb-2 font-mono text-xs font-semibold uppercase tracking-widest text-on-ink">
                 {group.title}
               </h2>
-              {(group.links ?? []).map((link) => (
+              {group.links.map((link) => (
                 <SmartLink key={link.label} href={link.href} className="py-1.5 text-[13px] hover:text-white">
                   {link.label}
                 </SmartLink>

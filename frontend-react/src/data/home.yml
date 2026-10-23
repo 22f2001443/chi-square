@@ -50,7 +50,7 @@ formats:
 
 # Lists the collaborators from site.yml.
 partners:
-  title: In collaboration with
+  title: Past collaborators
 
 join:
   title: Join the community
