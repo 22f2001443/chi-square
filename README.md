@@ -2,7 +2,7 @@
 
 Official website of the Chi-Square: Statistics Interest Group (earlier known as Chi-Square Statistics Club), IIT Madras BS Degree Program.
 
-🌐 Live Website: chi-square.vercel.app
+🌐 Live Website: chi-square.vercel.app[https://chi-square.vercel.app]
 
 Description
 
