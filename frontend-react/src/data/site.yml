@@ -16,6 +16,9 @@ description: >-
 logo: logo_t.png
 favicon: logo_t.png
 
+# Events with an id and no explicit poster use <posterBaseUrl>/<id>.webp.
+posterBaseUrl: https://kjrgaezqumxrhnue.public.blob.vercel-storage.com/poster
+
 footer:
   institution: BS Degree, Indian Institute of Technology Madras
   location: Chennai, Tamil Nadu

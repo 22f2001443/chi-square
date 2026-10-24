@@ -24,7 +24,7 @@ home:
 people:
   coreTeam: true
   collaborators: false
-  volunteers: true
+  volunteers: false
   pastMembers: true
   pastCollaborators: true
   join: true

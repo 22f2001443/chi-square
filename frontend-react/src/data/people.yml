@@ -27,12 +27,19 @@ coreTeam:
     #   house: Nilgiri House
     #   photo: team/sam.jpg
     #   linkedin: https://www.linkedin.com/in/samyabrata23/
+    # Roles are hidden for now; uncomment them to show them again.
     - name: Sukanya S
-      role: Core member [Content Team]
+      # role: Core member [Content Team]
       team: Content
       house: Saranda House
       photo: team/s.jpeg
       linkedin: https://www.linkedin.com/in/sukanya-s-04610a206/
+    - name: Ankit Kumar
+      photo: team/ankit.jpg
+      linkedin: https://www.linkedin.com/in/ankit-k-b5425617b/
+    - name: Premanand Jena
+      photo: team/premanad.jpg
+      linkedin: https://www.linkedin.com/in/premanand-jena-229b19329/
 
 collaborators:
   title: Collaborators

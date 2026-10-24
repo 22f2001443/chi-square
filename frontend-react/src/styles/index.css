@@ -141,6 +141,18 @@
 /* Our Journey cards: the details stay folded until a card is tapped or
    clicked open, or tabbed into. With a mouse, hovering a card also unfolds
    them, as an overlay so the cards below don't jump. */
+.ev {
+  min-width: 0;
+  width: 100%;
+  max-width: 48rem;
+  transition: max-width 0.2s ease;
+  --ev-poster: 16rem;
+}
+.ev:is([data-open], :has(:focus-visible)) {
+  max-width: 100%;
+  z-index: 10;
+  animation: none;
+}
 .ev-more {
   display: grid;
   grid-template-rows: 0fr;
@@ -163,6 +175,7 @@
 @media (hover: hover) {
   /* Settles a card that's still sliding in, so its overlay isn't see-through. */
   .ev:is(:hover, :has(:focus-visible)) {
+    max-width: 100%;
     z-index: 10;
     animation: none;
   }
@@ -178,6 +191,10 @@
     border-radius: 0 0 12px 12px;
     box-shadow: 0 18px 30px -14px rgb(15 17 21 / 0.28);
   }
+  /* A smaller poster in the hover overlay; full size once a card is opened. */
+  .ev:not([data-open]) {
+    --ev-poster: 10rem;
+  }
   .ev:not([data-open]) .ev-panel {
     border: 1px solid var(--color-field);
     border-top: 0;
@@ -192,6 +209,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ev,
   .ev-more,
   .ev-chevron {
     transition: none;

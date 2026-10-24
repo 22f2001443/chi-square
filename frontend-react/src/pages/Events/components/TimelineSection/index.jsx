@@ -7,10 +7,10 @@ import TimelineRow from "./components/TimelineRow";
 
 // The vertical timeline: an "up next" link, the events grouped by term, and
 // where it all began (shown only with the "All events" filter).
-export default function TimelineSection({ terms, showBeginning }) {
+export default function TimelineSection({ terms, showBeginning, filterHeight }) {
   return (
     <section aria-label="Timeline of events" className="bg-paper">
-      <div className="tl-wrap relative mx-auto max-w-240 px-6 pt-6 pb-16">
+      <div className="tl-wrap relative mx-auto max-w-300 px-6 pt-6 pb-16">
         <div
           aria-hidden="true"
           className="tl-line absolute top-0 bottom-0 left-[35px] w-0.5 bg-line md:left-[135px]"
@@ -41,7 +41,7 @@ export default function TimelineSection({ terms, showBeginning }) {
 
         {terms.map((group) => (
           <section key={group.term} aria-label={group.label} className="relative flex flex-col gap-2.5 pb-6">
-            <TimelineRow className="sticky top-13 z-5 items-center bg-paper py-2">
+            <TimelineRow className="sticky z-5 items-center bg-paper py-2" style={{ top: filterHeight }}>
               <span className="hidden md:block" />
               <span
                 aria-hidden="true"

@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Icon from "@/components/Icon";
 import { ButtonLink } from "@/components/ui";
 import seriesData from "@/data/series.yml";
-import { asset } from "@/lib/asset";
+import { eventPoster } from "@/lib/eventPoster";
 import Tabs from "./components/Tabs";
 
 const DETAILS = [
@@ -12,6 +13,8 @@ const DETAILS = [
 ];
 
 export default function FeaturedEvent({ event }) {
+  const poster = eventPoster(event);
+  const [failedPoster, setFailedPoster] = useState(null);
   const series = seriesData[event.series];
   const details = DETAILS.filter(([key]) => event[key]);
   const tabs = (event.tabs ?? []).filter((t) => t?.label);
@@ -23,8 +26,8 @@ export default function FeaturedEvent({ event }) {
             {event.series}
           </span>
         )}
-        {event.poster ? (
-          <img src={asset(event.poster)} alt={`Poster: ${event.title}`} className="w-full rounded-lg object-contain" />
+        {poster && failedPoster !== poster ? (
+          <img src={poster} alt={`Poster: ${event.title}`} onError={() => setFailedPoster(poster)} className="w-full rounded-lg object-contain" />
         ) : (
           <div className="flex flex-col gap-2">
             <span className="font-mono text-[65px] leading-none font-medium tracking-[-0.03em]">χ²</span>

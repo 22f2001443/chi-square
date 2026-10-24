@@ -2,6 +2,7 @@ import { useState } from "react";
 import EventLinks from "@/components/EventLinks";
 import Icon from "@/components/Icon";
 import { asset } from "@/lib/asset";
+import { eventPoster } from "@/lib/eventPoster";
 import { hasEventLinks, withAlpha } from "@/lib/events";
 import TimelineRow from "./TimelineRow";
 
@@ -9,6 +10,9 @@ import TimelineRow from "./TimelineRow";
 // The rest unfolds on hover, keyboard focus or a tap (see .ev in index.css).
 export default function TimelineEvent({ event }) {
   const [open, setOpen] = useState(false);
+  const poster = eventPoster(event);
+  const [failedPoster, setFailedPoster] = useState(null);
+  const showPoster = poster && failedPoster !== poster;
   const { kind } = event;
   const showFooter = event.attendance || hasEventLinks(event.links);
   const partner = event.collaborator;
@@ -61,32 +65,46 @@ export default function TimelineEvent({ event }) {
         </button>
         <div className="ev-more">
           <div>
-            <div className="ev-panel flex flex-col gap-1.5 border-t border-line-soft px-4 pt-3 pb-3.5">
-              {event.seriesLabel && <p className="text-[13px] text-muted">{event.seriesLabel}</p>}
-              {event.topic && <p className="text-sm leading-relaxed text-body">{event.topic}</p>}
-              {event.hosts.length > 0 && (
-                <p className="text-sm leading-relaxed text-body">
-                  <strong className="font-semibold">Hosted by</strong> {event.hosts.join(", ")}
-                </p>
-              )}
-              {showFooter && (
-                <div className="flex flex-wrap items-center gap-x-5">
-                  {event.attendance && (
-                    <span className="rounded-full bg-surface px-2.5 py-1 font-mono text-xs text-body">
-                      {event.attendance}
-                    </span>
-                  )}
-                  <EventLinks links={event.links} />
-                </div>
-              )}
-              {partner && (
-                <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
-                  In collaboration with
-                  {partner.logo && (
-                    <img src={asset(partner.logo)} alt="" className="block size-6 rounded-full bg-ink" />
-                  )}
-                  <strong className="font-semibold text-ink">{partner.name}</strong>
-                </p>
+            <div className={`ev-panel grid grid-cols-1 gap-4 border-t border-line-soft px-4 pt-3 pb-3.5 ${showPoster ? "md:grid-cols-[minmax(0,1fr)_minmax(0,var(--ev-poster))]" : ""}`}>
+              <div className="flex min-w-0 flex-col gap-1.5">
+                {event.seriesLabel && <p className="text-[13px] text-muted">{event.seriesLabel}</p>}
+                {event.topic && <p className="text-sm leading-relaxed text-body">{event.topic}</p>}
+                {event.hosts.length > 0 && (
+                  <p className="text-sm leading-relaxed text-body">
+                    <strong className="font-semibold">Hosted by</strong> {event.hosts.join(", ")}
+                  </p>
+                )}
+                {showFooter && (
+                  <div className="flex flex-wrap items-center gap-x-5">
+                    {event.attendance && (
+                      <span className="rounded-full bg-surface px-2.5 py-1 font-mono text-xs text-body">
+                        {event.attendance}
+                      </span>
+                    )}
+                    <EventLinks links={event.links} />
+                  </div>
+                )}
+                {partner && (
+                  <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
+                    In collaboration with
+                    {partner.logo && (
+                      <img src={asset(partner.logo)} alt="" className="block size-6 rounded-full bg-ink" />
+                    )}
+                    <strong className="font-semibold text-ink">{partner.name}</strong>
+                  </p>
+                )}
+              </div>
+              {showPoster && (
+                <a href={poster} target="_blank" rel="noopener noreferrer" className="block min-w-0 self-start rounded-lg">
+                  <img
+                    src={poster}
+                    alt={`Poster for ${event.name}`}
+                    loading="lazy"
+                    decoding="async"
+                    onError={() => setFailedPoster(poster)}
+                    className="max-h-96 w-full rounded-lg bg-surface object-contain"
+                  />
+                </a>
               )}
             </div>
           </div>

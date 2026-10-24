@@ -21,10 +21,13 @@ recent:
   count: 3
 
 # Each upcoming event gets a featured card. Only `title` is required; leave
-# out anything you don't know yet. `poster` is relative to `public/`.
+# out anything you don't know yet. `poster` is a full URL or relative to
+# `public/`. Without it, a unique `id` loads <site.posterBaseUrl>/<id>.webp.
+# Keep the same id when moving an event into events.yml after it finishes.
 # Copy this template:
 #
 #   - title: Event title
+#     id: probability-session-2027
 #     series: S01P01
 #     status: Registration open
 #     date: 1 January 2027

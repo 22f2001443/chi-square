@@ -1,12 +1,19 @@
 # Our Journey: every past event, shown newest first on a timeline grouped by
 # term.
 #
+# Each entry is one event. `id` uniquely identifies that event; `series`
+# references a shared definition in series.yml and may repeat across events.
+# Leave `series` out for a standalone event. Define new series in series.yml
+# before referencing them here; names and dropdown groups belong there.
+#
 # Per event: `type` must match a `type` under `kinds`; `series` is a code
 # from series.yml; `collaboration` is matched against the collaborators in
 # site.yml to show their logo. Attendance is `participants` (a count) or
 # `registered` / `attended`. Links are optional and only shown when present
-# (youtube, material, linkedin, instagram). `poster` (relative to public/) is
-# shown on the Home page's latest-event cards. `endDate` marks the last day
+# (youtube, material, linkedin, instagram). `poster` (a full URL or relative
+# to public/) is shown on the Home page's latest-event cards. Without it,
+# a unique `id` loads <site.posterBaseUrl>/<id>.webp. Keep `series` as the
+# shared series code, not the event ID. `endDate` marks the last day
 # of an event that runs over several days of one month. `guestSpeaker`,
 # `judge` and `coHost` show on the event's card without opening it.
 
@@ -344,7 +351,7 @@ events:
     date: June 2, 2026
     time: 6:30:00 PM
     mode: Online
-    term: May 2026
+    term: Paradox 2026
     series: PP101
     topic: 'Questionnaire and Survey Design: Probably Paradoxical Context'
     guestSpeaker: Prof. (Dr.) Shyamolina Ghosh, Assistant Professor, Agricultural and Ecological Research Unit, Indian Statistical Institute, Kolkata
@@ -359,7 +366,7 @@ events:
     date: June 10, 2026
     endDate: June 11, 2026
     mode: Offline
-    term: May 2026
+    term: Paradox 2026
     series: PP102
     judge: Prof. Rahul Marathe, DoMS, IIT Madras
     collaboration: Paradox 2026
@@ -367,8 +374,9 @@ events:
       - Samyabrata Roy
       - Sukanya S
       - Ankit Kumar
-      - premanand Jena
+      - Premanand Jena
   - name: Interactive Session on Enterprise Survey
+    id: enterprise-survey-2026
     type: Academic Talks
     date: October 13, 2026
     time: 3:00:00 PM
@@ -378,9 +386,10 @@ events:
     attended: 65+
     coHost: Ministry of Statistics and Programme Implementation (MoSPI)
     collaboration: National Statistics Office (NSO), MoSPI
+    poster: https://kjrgaezqumxrhnue.public.blob.vercel-storage.com/poster/Chi-sqaure-event1-poster.png
     hosts:
       - Samyabrata Roy
-      - premanand Jena
+      - Premanand Jena
   - name: Weekly Challenges
     type: Contests
     mode: Online

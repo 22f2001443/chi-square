@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { asset } from "@/lib/asset";
+import { eventPoster } from "@/lib/eventPoster";
 
 // An event's poster, or its series code on ink when there is none (or it
 // fails to load).
 export default function PosterOrCode({ event }) {
-  const [failed, setFailed] = useState(false);
-  if (event.poster && !failed) {
+  const poster = eventPoster(event);
+  const [failedPoster, setFailedPoster] = useState(null);
+  if (poster && failedPoster !== poster) {
     return (
       <img
-        src={asset(event.poster)}
+        src={poster}
         alt={`Poster: ${event.name}`}
-        onError={() => setFailed(true)}
+        onError={() => setFailedPoster(poster)}
         className="block h-60 w-full bg-surface object-cover object-top"
       />
     );

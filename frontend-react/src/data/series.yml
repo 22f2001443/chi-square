@@ -1,6 +1,11 @@
-# Event series, keyed by series code. Each event in events.yml points to one
-# of these with `series: <code>`; the Our Journey page shows the name and topic.
+# Shared series definitions for events.yml and upcoming.yml.
+# - Each key is a stable series code referenced by `series: <code>`.
+# - `name` and `topic` describe the series on event cards.
+# - Optional `group` combines series into one dropdown option within a format.
+#   Use exactly the same group text for every series that belongs together.
+# Individual dates, speakers, posters and unique event IDs belong on events.
 
+# Academic series
 S01P01:
   name: Beyond the Numbers
   topic: Probability Series
@@ -10,6 +15,22 @@ S01H01:
 S03TS01:
   name: Trendlines
   topic: Time Series Analysis
+
+# Guest lectures: one dropdown option, individual series details on cards.
+GE01:
+  group: Guest lectures
+  name: Guest Series 01
+  topic: Research Opportunities in Statistics
+GE02:
+  group: Guest lectures
+  name: Guest Series 02
+  topic: Privacy in Deep Learning
+PP101:
+  group: Guest lectures
+  name: Pre-Paradox Guest Talk
+  topic: Questionnaire and Survey Design
+
+# Revision series
 R01S1:
   name: Revision Session
   topic: Statistics I
@@ -22,12 +43,11 @@ R03MLF:
 R03MLT:
   name: Revision Session
   topic: Machine Learning Techniques
+
+# Contest series
 WC01T01:
   name: Weekly Challenges
   topic: Weekly Quiz Contest
-GE01:
-  name: Guest Series 01
-  topic: Research Opportunities in Statistics
-GE02:
-  name: Guest Series 02
-  topic: Privacy in Deep Learning
+PP102:
+  name: Probably Paradoxical
+  topic: Paradox 2026

@@ -32,7 +32,7 @@ changes are needed.
 | `navigation.yml` | Top navigation bar |
 | `home.yml` | Home page hero, stats, latest events, "What we do", partners, join band |
 | `events.yml` | Our Journey timeline: every past event, plus the kinds of event and their colours |
-| `series.yml` | Event series names and topics, referenced from `events.yml` |
+| `series.yml` | Shared series names, topics and dropdown groups, referenced from `events.yml` and `upcoming.yml` |
 | `upcoming.yml` | Upcoming events (with a template to copy) |
 | `people.yml` | Core team, collaborators, volunteers and alumni |
 | `about.yml` | About Us page |
@@ -44,6 +44,26 @@ To switch a page or a section off without deleting it, set it to `false` in
 
 Image paths are relative to `frontend-react/public/`; full URLs also work.
 Links starting with `/` (e.g. `/people`) are pages on this site.
+
+Keep individual event details in `events.yml` or `upcoming.yml`. Their optional
+`series` field must match a key in `series.yml`; several events can share that
+key. In `series.yml`, `name` and `topic` supply the event card's series label.
+Academic talks and Contests have series dropdowns, each showing only series
+used by that event format. Set the same `group` text on related series to combine
+them: `GE01`, `GE02` and `PP101` all use `group: Guest lectures`.
+Without a group, a series gets its own dropdown option. Keep an event's unique
+`id` separate from its shared `series` code.
+
+For event posters hosted in Vercel Blob, set `posterBaseUrl` once in
+`site.yml`. Give each event a unique, stable `id` (for example,
+`probability-session-2027`) and upload its poster as
+`poster/probability-session-2027.webp` to that store, without a random filename
+suffix. Omit `poster` to use this convention. An explicit `poster` URL or local
+path takes precedence, including for images with another extension. The same
+helper handles past and upcoming events; missing images show the existing
+fallback. Keep `series` for grouping related events and keep an event's `id`
+when moving it from upcoming to past events. Upload image files from outside
+the repository so only the YAML configuration goes into Git.
 
 Everything in these files is published, so never add email addresses, phone
 numbers or API keys to them.

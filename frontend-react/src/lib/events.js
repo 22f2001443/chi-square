@@ -21,7 +21,10 @@ function parseDate(text) {
 const shortMonth = (date) => `${SHORT[date.getMonth()]} ${date.getFullYear()}`;
 
 // "January 2026" -> "January Term 2026"; anything else is kept as-is.
-const termName = (term) => String(term ?? "").replace(/^([A-Za-z]+)\s+(\d{4})$/, "$1 Term $2") || term;
+const termName = (term) => String(term ?? "").replace(
+  /^([A-Za-z]+)\s+(\d{4})$/,
+  (label, month, year) => MONTHS.includes(month.toLowerCase()) ? `${month} Term ${year}` : label
+) || term;
 
 // "#2F4BD8" -> "rgba(47, 75, 216, 0.25)"
 export function withAlpha(hex, alpha) {
@@ -64,6 +67,7 @@ function normalize(e) {
   const date = parseDate(e.date);
   const day = date ? dayLabel(date, parseDate(e.endDate)) : null;
   const series = seriesData[e.series];
+  const seriesLabel = series ? `${series.name} · ${series.topic}` : e.series;
   const partner = (site.collaborators ?? []).find((c) => c.name === e.collaboration);
   return {
     ...e,
@@ -75,7 +79,9 @@ function normalize(e) {
     monthYear: date ? shortMonth(date) : null,
     termLabel: termName(e.term),
     dateLabel: date ? `${day} ${shortMonth(date)}` : termName(e.term),
-    seriesLabel: series ? `${series.name} · ${series.topic}` : e.series,
+    seriesLabel,
+    seriesFilter: series?.group ?? e.series,
+    seriesFilterLabel: series?.group ?? seriesLabel,
     hosts: (e.hosts ?? []).filter(Boolean),
     attendance: attendanceLabel(e),
     collaborator: e.collaboration ? { name: e.collaboration, logo: partner?.logo } : null,
