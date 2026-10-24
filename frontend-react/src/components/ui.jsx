@@ -1,4 +1,4 @@
-import { pageOn } from "../lib/features";
+import { pageOn } from "../config/featureFlags";
 import SmartLink from "./SmartLink";
 import Icon from "./Icon";
 

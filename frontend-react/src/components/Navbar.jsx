@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import site from "../data/site.yml";
 import navigation from "../data/navigation.yml";
 import { asset } from "../lib/asset";
-import { pageOn } from "../lib/features";
+import { pageOn } from "../config/featureFlags";
 import Icon from "./Icon";
 
 export default function Navbar() {

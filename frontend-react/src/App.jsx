@@ -8,10 +8,10 @@ import Upcomings from "./pages/Upcomings";
 import Blogs from "./pages/Blogs";
 import MaintenancePage from "./pages/Maintenece";
 import NotFound from "./pages/NotFound";
-import { pageOn } from "./lib/features";
+import { pageOn } from "./config/featureFlags";
 
 // Shows the maintenance notice in place of any page switched off in
-// src/data/features.yml.
+// src/config/features.yml.
 function FeatureGate() {
   const { pathname } = useLocation();
   return pageOn(pathname) ? <Outlet /> : <MaintenancePage />;

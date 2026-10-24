@@ -55,6 +55,10 @@ export default defineConfig({
     yaml({ transform: (data) => fillSiteName(data, readSite().name) }),
     siteMeta(),
   ],
+  // `@/` is src/, so files nested deep in src/pages import without ../../..
+  resolve: {
+    alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
+  },
   base: target === "gh-pages" ? "/chi-square/" : "/",
   build: {
     sourcemap: false,

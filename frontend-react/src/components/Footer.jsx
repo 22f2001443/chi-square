@@ -1,6 +1,6 @@
 import site from "../data/site.yml";
 import { asset } from "../lib/asset";
-import { pageOn } from "../lib/features";
+import { pageOn } from "../config/featureFlags";
 import SmartLink from "./SmartLink";
 
 const currentYear = new Date().getFullYear();

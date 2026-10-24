@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Layout from "../components/Layout";
-import BlogCard from "../components/BlogCard";
-import { ArrowLink, Container, PageHeader } from "../components/ui";
-import blogs from "../data/blogs.yml";
+import Layout from "@/components/Layout";
+import BlogCard from "@/components/BlogCard";
+import { ArrowLink, Container, PageHeader } from "@/components/ui";
+import blogs from "@/data/blogs.yml";
 
 export default function Blogs() {
   const posts = (blogs.posts ?? []).filter(Boolean);

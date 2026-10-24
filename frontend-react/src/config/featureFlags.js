@@ -1,6 +1,6 @@
-import features from "../data/features.yml";
+import features from "./features.yml";
 
-// Feature flags from src/data/features.yml. Anything not listed there is on.
+// Feature flags from ./features.yml. Anything not listed there is on.
 
 // Whether the page at `path` is on. Full URLs and other links that aren't
 // pages on this site always are.

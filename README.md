@@ -39,6 +39,9 @@ changes are needed.
 | `courses.yml` | Resources page: course materials and library |
 | `blogs.yml` | Blog posts |
 
+To switch a page or a section off without deleting it, set it to `false` in
+`frontend-react/src/config/features.yml`.
+
 Image paths are relative to `frontend-react/public/`; full URLs also work.
 Links starting with `/` (e.g. `/people`) are pages on this site.
 
@@ -54,9 +57,10 @@ numbers or API keys to them.
 │   │   └── ...
 │   ├── src/
 │   │   ├── data/          ← all site content (YAML)
+│   │   ├── config/        ← feature flags (features.yml) and their helpers
 │   │   ├── components/    ← Layout, Navbar, Footer and shared UI
 │   │   ├── lib/           ← event and asset helpers
-│   │   ├── pages/
+│   │   ├── pages/         ← one folder per page (see below)
 │   │   ├── styles/        ← Tailwind theme and timeline animation
 │   │   ├── App.jsx
 │   │   └── main.jsx
@@ -70,3 +74,30 @@ numbers or API keys to them.
 │   └── package-lock.json
 └── README.md
 ```
+
+### Pages
+
+A page with parts of its own is a folder: `index.jsx` lays the page out, and
+`components/` holds its sections. A part used by only one section lives inside
+that section's folder, the same way down:
+
+```
+pages/
+├── Home/
+│   ├── index.jsx                    ← which sections show, in order
+│   └── components/
+│       ├── HeroSection.jsx
+│       ├── LatestSection/
+│       │   ├── index.jsx
+│       │   └── components/
+│       │       ├── EventCard.jsx
+│       │       └── PosterOrCode.jsx
+│       └── ...
+├── Blogs.jsx                        ← a page with no parts stays one file
+└── NotFound.jsx
+```
+
+Each section reads its own YAML from `src/data/` and renders nothing when
+that content is empty; the page's `index.jsx` only applies the feature flags.
+Components shared by several pages stay in `src/components/`. Import from
+`src/` with `@/` (e.g. `@/components/Layout`) rather than `../../..`.
