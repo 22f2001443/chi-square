@@ -1,0 +1,51 @@
+@import 'tailwindcss' source('./');
+/* Fonts ship with the admin rather than loading from Google, so the page makes
+   no third-party request and the CSP needs no font host but 'self'. */
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+/* The site's tokens (frontend-react/src/styles/index.css): ink and paper,
+   IBM Plex, one blue accent. Keep the two aligned. */
+@theme {
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --color-ink: #0f1115;
+  --color-ink-line: #22252c;
+  --color-ink-edge: #3a3f4a;
+  --color-on-ink: #f4f5f7;
+  --color-on-ink-muted: #a9afbc;
+
+  --color-paper: #ffffff;
+  --color-surface: #f4f5f7;
+  --color-line: #e2e4e9;
+  --color-line-soft: #eef0f3;
+  --color-field: #cdd1d9;
+  --color-body: #3a3f4a;
+  --color-muted: #5b616e;
+
+  --color-accent: #2f4bd8;
+  --color-accent-strong: #2238a8;
+  --color-accent-soft: #e9edff;
+
+  --color-warn-soft: #fff4d6;
+  --color-warn-ink: #7a5300;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+  --color-success: #13795b;
+  --color-success-soft: #e3f6ee;
+}
+
+@layer base {
+  body {
+    @apply m-0 min-w-80 bg-surface font-sans text-[15px] text-ink antialiased;
+  }
+  button { font: inherit; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}

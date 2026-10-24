@@ -48,10 +48,19 @@ Links starting with `/` (e.g. `/people`) are pages on this site.
 Everything in these files is published, so never add email addresses, phone
 numbers or API keys to them.
 
+### Admin
+
+`admin/` is a separate app for editing all of the above through forms instead
+of YAML. Run it with `npm install && npm run dev` from `admin/`: it edits the
+files on disk, and you commit them as usual. It is also built to run on Vercel
+for several club members (sign in with GitHub, changes published as one
+commit), though that isn't deployed. See [admin/README.md](admin/README.md).
+
 ## 📁 Project Structure
 
 ```
 .
+├── admin/                 ← content admin (see admin/README.md)
 ├── frontend-react/
 │   ├── public/
 │   │   └── ...
