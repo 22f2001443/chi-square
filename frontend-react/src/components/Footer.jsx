@@ -65,6 +65,11 @@ export default function Footer() {
           <span>
             © {currentYear} {site.name}
           </span>
+          {footer.flagCounter && (
+            <SmartLink href={footer.flagCounter.href}>
+              <img src={footer.flagCounter.image} alt="Flag Counter" loading="lazy" className="block max-w-full" />
+            </SmartLink>
+          )}
           <ul className="flex flex-wrap gap-x-5 gap-y-1">
             {socials.filter(Boolean).map((s) => (
               <li key={s.label}>

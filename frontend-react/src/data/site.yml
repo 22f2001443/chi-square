@@ -24,6 +24,10 @@ footer:
     name: IIT Madras BS Degree
     logo: IIT_Madras_Logo.png
     href: https://study.iitm.ac.in/ds/
+  # Visitor counter badge in the bottom bar; remove to hide it.
+  flagCounter:
+    href: https://flagcounter.me/details/kLQ
+    image: https://flagcounter.me/kLQ
   linkGroups:
     - title: Quick links
       links:
