@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 // Page frame: navigation, content and footer. Scrolls back to the top when
-// the route changes, since the hash router keeps the old scroll position.
+// the route changes, since client-side navigation keeps the old scroll position.
 export default function Layout({ children }) {
   const { pathname } = useLocation();
   useEffect(() => {
